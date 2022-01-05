@@ -1,9 +1,9 @@
 let fetch = require('node-fetch')
 let handler = async (m, { conn }) => {
 	conn.send3ButtonLoc(m.chat, await (await fetch(fla + 'sewa bot')).buffer(), `╠═〘 Beli Bot 〙 ═
-╠➥ *1 Bulan* :      *Rp 15000*
-╠➥ *Permanen* : *Rp 25000*
-╠➥ *Premium* :   *Rp 10000*
+╠➥ *1 Bulan* :      *Rp 20.000,00*
+╠➥ *Permanen* : *Rp 30.000,00*
+╠➥ *Premium* :   *Rp 10.000,00*
 ╠➥ *Sc Bot* :        *Masih Beta*
 ║
 ╠═〘 PEMBAYARAN 〙 ═
