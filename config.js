@@ -11,14 +11,14 @@
 // thank you to ALL Bot creator
 // and thanks you to who support my Bot
 
-gc1 = 'https://chat.whatsapp.com/Jxe836o7w9L9EhaYPkyZdV'
+gc1 = 'https://chat.whatsapp.com/HJ9pD2XJ8vq7whuAYOvT1Y'
 gc2 = ''
 gc3 = ''
-global.linkGC = ['https://chat.whats', 'https://chat.whatsap'] // ganti jadi group lu
-global.owner = ['6283822759168'] // Put your number here //owner eval
-global.kontak = ['6283822759168','0'] //Ketika ada yang ngetik #owner
+global.linkGC = ['https://chat.whatsapp.com/HJ9pD2XJ8vq7whuAYOvT1Y', ''] // ganti jadi group lu
+global.owner = ['6289505165400'] // Put your number here //owner eval
+global.kontak = ['6289505165400','0'] //Ketika ada yang ngetik #owner
 global.mods = ['0'] // Want some help?
-global.prems = ['6283822759168'] // Premium user has unlimited limit
+global.prems = ['6289505165400'] // Premium user has unlimited limit
 global.APIs = { // API Prefix
   // name: 'https://website'
   nrtm: 'https://nurutomo.herokuapp.com', 
@@ -47,20 +47,20 @@ xteamkey = 'Dawnfrostkey'
 namaig = 'GAK ADA :)'
 namagithub = 'GAK ADA :)'
 kasihcaption = `Nih kak`
-namakontak1 = 'Andrii Street Moonshine'
-namakontak2 = 'Andrii Street Moonshine'
+namakontak1 = 'AlyaaXd'
+namakontak2 = 'AlyaaXd'
 
 //kasihcaption = `Nih Kak`
 
 // Sticker WM
-global.packname = 'By Andrii Street Moonshine' // ganti aja
-global.author = 'Andrii Street Moonshine' // ganti aja
+global.packname = 'By AlyaaXd' // ganti aja
+global.author = 'AlyaaXd' // ganti aja
 
 //yyy
-bc = 'RFK' //ANDRIIxBOTZ Broadcast
-footer = '\n©ANDRIIxBOTZ'
-namabot = 'ANDRIIxBOTZ'
-namalu = 'Andrii Street Moonshine'
+bc = 'RFK' //AlyaaXd Broadcast
+footer = '\n©AlyaaXd'
+namabot = 'AlyaaXd'
+namalu = 'AlyaaXd'
 
 
 // 
