@@ -29,8 +29,8 @@ let handler  = async (m, { conn, usedPrefix }) => {
 ➥ *Uptime:* ${uptime}
 
 ═ 〘 DONASI 〙 ═
-➥ Pulsa : 083822759168
-➥ Dana & OVO: 083822759168
+➥ Pulsa : 6285730903853
+➥ Dana & OVO: 6285730903853
 
 
 ➥ Request? ${package.bugs.url}
@@ -38,17 +38,17 @@ let handler  = async (m, { conn, usedPrefix }) => {
 Official Grup :
 
 Grup 1 :
-${gc1}
+https://chat.whatsapp.com/HJ9pD2XJ8vq7whuAYOvT1Y
 
 Grup 2 :
-${gc2}
+https://chat.whatsapp.com/HJ9pD2XJ8vq7whuAYOvT1Y
 
 Grup 3 :
-${gc3}
+https://chat.whatsapp.com/HJ9pD2XJ8vq7whuAYOvT1Y
 
 
  ©2021 ${namabot}
- Script original by Andrii Street Moonshine
+ Script original by AlyaaXd
  
  
 ═〘 ${namabot} 〙 ═
