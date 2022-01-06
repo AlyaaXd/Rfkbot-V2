@@ -33,7 +33,7 @@ let handler  = async (m, { conn, usedPrefix }) => {
 ➥ Dana & OVO: 6285730903853
 
 
-➥ Request? ${package.bugs.url}
+➥ Request? https://github.com/AlyaaXd
 
 Official Grup :
 
