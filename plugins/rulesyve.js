@@ -22,8 +22,8 @@ let handler  = async (m, { conn, usedPrefix }) => {
 
 
 ➥ ${namabot} Versi ${package.version}
-➥ *HomePage:* ${(package.homepage ? package.homepage.url || package.homepage : '[unknown github url]')}
-➥ *Issue:* ${package.bugs.url}
+➥ *HomePage:* https://github.com/AlyaaXd
+➥ *Issue:* https://github.com/AlyaaXd
 ➥ *Ping:* ${neww - old} *ms*
 ➥ *Total user:* ${totalreg} *user*
 ➥ *Uptime:* ${uptime}
@@ -47,7 +47,7 @@ Grup 3 :
 https://chat.whatsapp.com/HJ9pD2XJ8vq7whuAYOvT1Y
 
 
- ©2021 ${namabot}
+ ©BaseNew ${namabot}
  Script original by AlyaaXd
  
  
