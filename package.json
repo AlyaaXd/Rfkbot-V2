@@ -1,5 +1,5 @@
 {
-  "name": "ANDRIIxBOTZ",
+  "name": "AlyaaXd",
   "version": "1.5.0",
   "description": "WhatsApp Bot",
   "depecrated": false,
@@ -19,16 +19,16 @@
     "whatsapp",
     "js-whatsapp"
   ],
-  "homepage": "https://github.com/Andriiwalker/wabot-aq",
+  "homepage": "https://github.com/AlyaaXd/rfkbot",
   "author": {
-    "name": "Andrii Street Moonshine"
+    "name": "AlyaaXd"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Andriiwalker/wabot-aq.git"
+    "url": "git+https://github.com/AlyaaXd/rfkbot.git"
   },
   "bugs": {
-    "url": "https://github.com/Andriiwalker/wabot-aq/issues"
+    "url": "https://github.com/AlyaaXd/rfkbot/issues"
   },
   "license": "GPL-3.0-or-later",
   "dependencies": {
