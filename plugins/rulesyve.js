@@ -12,13 +12,15 @@ let handler  = async (m, { conn, usedPrefix }) => {
   conn.reply(m.chat, `
 ═〘 Rules ${namabot} 〙═
 
-➥ Mohon untuk tidak Spam Bot karena Bot ini sudah memiliki Otomatis Blokir Bagi Pengguna Bot yang Spam
+⬡ Mohon untuk tidak Spam Bot karena Bot ini sudah memiliki Otomatis Blokir Bagi Pengguna Bot yang Spam
 
-➥ Mohon untuk tidak Menelpon Bot karena Bot ini sudah memiliki Otomatis Blokir Bagi orang yang nelpon Bot
+⬡ Mohon maaf jika ad yg memakai menu Nsfw maka akan di block oleh bot, jika di gc tolong admin untuk menghubungi kami!!
 
-➥ Kami tidak bertanggung jawab atas penyalahgunaan bot
+⬡ Mohon untuk tidak Menelpon Bot karena Bot ini sudah memiliki Otomatis Blokir Bagi orang yang nelpon Bot
 
-➥ Kami tidak bertanggung jawab atas kebocoran data pribadi anda
+⬡ Kami tidak bertanggung jawab atas penyalahgunaan bot
+
+⬡ Kami tidak bertanggung jawab atas kebocoran data pribadi anda
 
 
 ➥ ${namabot} Versi ${package.version}
