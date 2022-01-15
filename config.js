@@ -47,20 +47,20 @@ xteamkey = 'Dawnfrostkey'
 namaig = 'GAK ADA :)'
 namagithub = 'GAK ADA :)'
 kasihcaption = `Nih kak`
-namakontak1 = 'AlyaaXd'
-namakontak2 = 'AlyaaXd'
+namakontak1 = 'AlyaaXzy'
+namakontak2 = 'AlyaaXzy'
 
 //kasihcaption = `Nih Kak`
 
 // Sticker WM
-global.packname = 'By AlyaaXd' // ganti aja
-global.author = 'AlyaaXd' // ganti aja
+global.packname = 'By AlyaaXzy' // ganti aja
+global.author = 'AlyaaXzy' // ganti aja
 
 //yyy
-bc = 'AlyaaXd' //AlyaaXd Broadcast
-footer = '\n©AlyaaXd'
-namabot = 'AlyaaXd'
-namalu = 'AlyaaXd'
+bc = 'AlyaaXzy' //AlyaaXy Broadcast
+footer = '\n©AlyaaXzy'
+namabot = 'AlyaaXzy'
+namalu = 'AlyaaXzy'
 
 
 // 
