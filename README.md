@@ -36,7 +36,7 @@ apt install nodejs -y
 apt install ffmpeg -y
 apt install imagemagick -y
 git clone https://github.com/AlyaaXd/RfkbotV1
-cd Mike-bot
+cd RfkbotV1
 npm install
 npm update
 ```
