@@ -232,7 +232,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
           "title": `${ucapan()}, ${name}`.trim(),
           "description": `
 ┏━━━「 Status 」━━ ❖
-┃❖ Aktif selama ${uptime} 
+┃❖ Aktif selama ${uptime}
 ┃❖ Baterai ${conn.battery != undefined ? `${conn.battery.value}% ${conn.battery.live ? '🔌 pengisian' : ''}` : 'tidak diketahui'}
 ┃❖ *${Object.keys(global.db.data.users).length}* Pengguna
 ┃❖ *${totaljadibot.length}* Jadibot
@@ -464,7 +464,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
     throw e
   }
 }
-handler.help = ['menu', '?', 'help','Alyaa','alyaa'AlyaaXzy]
+handler.help = ['menu', '?', 'help']
 handler.tags = ['main']
 handler.command = /^(menu|\?|help)$/i
 
@@ -483,7 +483,7 @@ function clockString(ms) {
 }
 function ucapan() {
   const time = moment.tz('Asia/Jakarta').format('HH')
-  res = "Selamat Pagi kaum gadang:v"
+  res = "Selamat Pagi kaum gadang🤙"
   if (time >= 4) {
     res = "Pagi Tod🗿"
   }
