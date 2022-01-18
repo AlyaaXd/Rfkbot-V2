@@ -10,32 +10,32 @@ let handler  = async (m, { conn, usedPrefix }) => {
   //await m.reply('wait Kakak!!')
   let neww = Math.round(performance.now())
   conn.reply(m.chat, `
-═〘 Rules ${namabot} 〙═
+┏━━━「 Rules ${namabot} 」━━ ❖
+┃❖ Mohon untuk tidak Spam Bot karena Bot ini sudah memiliki Otomatis Blokir Bagi Pengguna Bot yang Spam
+┃
+┃❖ Mohon maaf jika ad yg memakai menu Nsfw maka akan di block oleh bot, jika di gc tolong admin untuk menghubungi kami!!
+┃
+┃❖ Mohon untuk tidak Menelpon Bot karena Bot ini sudah memiliki Otomatis Blokir Bagi orang yang nelpon Bot
+┃
+┃❖ Kami tidak bertanggung jawab atas penyalahgunaan bot
+┃
+┃❖ Kami tidak bertanggung jawab atas kebocoran data pribadi anda
+┃
+┗━━━━━━━━━━━━━━━━━ ❖
 
-⬡ Mohon untuk tidak Spam Bot karena Bot ini sudah memiliki Otomatis Blokir Bagi Pengguna Bot yang Spam
+❖ ${namabot} Versi ${package.version}
+❖ *HomePage:* https://github.com/AlyaaXd
+❖ *Issue:* https://github.com/AlyaaXd
+❖ *Ping:* ${neww - old} *ms*
+❖ *Total user:* ${totalreg} *user*
+❖ *Uptime:* ${uptime}
 
-⬡ Mohon maaf jika ad yg memakai menu Nsfw maka akan di block oleh bot, jika di gc tolong admin untuk menghubungi kami!!
-
-⬡ Mohon untuk tidak Menelpon Bot karena Bot ini sudah memiliki Otomatis Blokir Bagi orang yang nelpon Bot
-
-⬡ Kami tidak bertanggung jawab atas penyalahgunaan bot
-
-⬡ Kami tidak bertanggung jawab atas kebocoran data pribadi anda
-
-
-➥ ${namabot} Versi ${package.version}
-➥ *HomePage:* https://github.com/AlyaaXd
-➥ *Issue:* https://github.com/AlyaaXd
-➥ *Ping:* ${neww - old} *ms*
-➥ *Total user:* ${totalreg} *user*
-➥ *Uptime:* ${uptime}
-
-═ 〘 DONASI 〙 ═
-➥ Pulsa : 6285730903853
-➥ Dana & OVO: 6285730903853
+   「 DONASI 」 
+❖ Pulsa : 6285730903853
+❖ Dana & OVO: 6285730903853
 
 
-➥ Request? https://github.com/AlyaaXd
+❖ Request? https://github.com/AlyaaXd
 
 Official Grup :
 
@@ -50,7 +50,7 @@ https://chat.whatsapp.com/HJ9pD2XJ8vq7whuAYOvT1Y
 
 
  ©BaseNew ${namabot}
- Script original by AlyaaXd
+ Script original by AlyaaXzy
  
  
 ═〘 ${namabot} 〙 ═
