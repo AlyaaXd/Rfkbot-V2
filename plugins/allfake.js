@@ -12,8 +12,8 @@ key: {
 						"mimetype": "image/jpeg",
 						"jpegThumbnail": fs.readFileSync('./src/mike.jpg') //Gambarnye
 					},
-					"title": "MikeBot", //Kasih namalu 
-					"description": "SELF BOT", 
+					"title": "AlyaaXzy", //Ga ush di ganti biar ga error 
+					"description": "AlyaaXzy", 
 					"currencyCode": "USD",
 					"priceAmount1000": "2000",
 					"retailerId": "Ghost",
@@ -33,7 +33,7 @@ const ftroli = {
                             itemCount : 1,
                             status: 1,
                             surface : 1,
-                            message: 'MikeBot', //Kasih namalu
+                            message: 'AlyaaXzy', //Ga ush di ganti biar ga error
                             orderTitle: 'Bang',
                             thumbnail: fs.readFileSync('./src/mike.jpg'), //Gambarnye
                             sellerJid: '0@s.whatsapp.net'
