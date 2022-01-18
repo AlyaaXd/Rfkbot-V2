@@ -8,30 +8,30 @@ const chats = conn.chats.all()
 const groups = chats.filter(v => v.jid.endsWith('g.us'))
 const defaultMenu = {
   before: `
-┏━━〔 ${namabot} 〕━⬣
-┃⬡ Hai, %name!
+┏━━━━「 ${namabot} 」━━ ❖
+┃❖ Hai, %name!
 ┃
-┃⬡ Tersisa *%limit Limit*
-┃⬡ Role *%role*
-┃⬡ Level *%level (%exp / %maxexp)* 
-┃⬡ [%xp4levelup]
-┃⬡ %totalexp XP secara Total
+┃❖ Tersisa *%limit Limit*
+┃❖ Role *%role*
+┃❖ Level *%level (%exp / %maxexp)* 
+┃❖ [%xp4levelup]
+┃❖ %totalexp XP secara Total
 ┃ 
-┃⬡ Hari : *%week %weton* 
-┃⬡ Tanggal : *%date*
-┃⬡ Tanggal Islam : 
-┃⬡ *%dateIslamic*
-┃⬡ Waktu: *%time*
+┃❖ Hari : *%week %weton* 
+┃❖ Tanggal : *%date*
+┃❖ Tanggal Islam : 
+┃❖ *%dateIslamic*
+┃❖ Waktu: *%time*
 ┃
-┃⬡ Uptime: *%uptime (%muptime)*
-┃⬡ Database: %rtotalreg dari %totalreg
-┃⬡ Github:
-┃⬡ https://github.com/AlyaaXd/rfkbot
+┃❖ Uptime: *%uptime (%muptime)*
+┃❖ Database: %rtotalreg dari %totalreg
+┃❖ Github:
+┃ https://github.com/AlyaaXd/RfkbotV1
 ┃
-┗━━━━━━⬣`.trimStart(),
-  header: '┏━━〔 %category 〕━⬣',
+┗━━━━━━ ❖`.trimStart(),
+  header: '┏━━〔 %category 〕━ ❖',
   body: '┃⬡%cmd %islimit %isPremium',
-  footer: '┗━━⬣\n',
+  footer: '┗━━ ❖\n',
   after: `
 *%npmname@^%version*
 ${'```%npmdesc```'}
@@ -231,21 +231,21 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
         "listMessage": {
           "title": `${ucapan()}, ${name}`.trim(),
           "description": `
-┏━━〔 Status 〕━⬣
-┃⬡ Aktif selama ${uptime}
-┃⬡ Baterai ${conn.battery != undefined ? `${conn.battery.value}% ${conn.battery.live ? '🔌 pengisian' : ''}` : 'tidak diketahui'}
-┃⬡ *${Object.keys(global.db.data.users).length}* Pengguna
-┃⬡ *${totaljadibot.length}* Jadibot
-┃⬡ *${conn.blocklist.length}* Terblock
-┃⬡ *${Object.entries(global.db.data.chats).filter(chat => chat[1].isBanned).length}* Chat Terbanned
-┃⬡ *${Object.entries(global.db.data.users).filter(user => user[1].banned).length}* Pengguna Terbanned
+┏━━━「 Status 」━━ ❖
+┃❖ Aktif selama ${uptime} 
+┃❖ Baterai ${conn.battery != undefined ? `${conn.battery.value}% ${conn.battery.live ? '🔌 pengisian' : ''}` : 'tidak diketahui'}
+┃❖ *${Object.keys(global.db.data.users).length}* Pengguna
+┃❖ *${totaljadibot.length}* Jadibot
+┃❖ *${conn.blocklist.length}* Terblock
+┃❖ *${Object.entries(global.db.data.chats).filter(chat => chat[1].isBanned).length}* Chat Terbanned
+┃❖ *${Object.entries(global.db.data.users).filter(user => user[1].banned).length}* Pengguna Terbanned
 ┃
-┃⬡ Script by Alyaa
-┃⬡ Github Name : AlyaaXd
-┃⬡ Yt : AlyaaXd
-┃⬡ Run bot : Heroku
-┃⬡ Tipe SC rfkbot
-┗━━━━━━━━⬣`.trim(),
+┃❖ Script by AlyaaXzy ?
+┃❖ Yt : AlyaaXzy ?
+┃❖ Base nurutomo
+┃❖ pesan: *yg rubah sumber kek
+┃  Kontol*
+┗━━━━━━━━ ❖`.trim(),
           "buttonText": "Klik Disini",
           "listType": "SINGLE_SELECT",
           "sections": [
@@ -256,11 +256,11 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
                   "description": "Memberikan Semua Fitur Bot",
                   "rowId": ".? all"
                 }, {
-                  "title": "[🕋] Islam",
+                  "title": "[🕌] Islam",
                   "description": "Menu Tentang Islam",
                   "rowId": ".? quran"
                 }, {
-                  "title": "[🏫] Edukasi",
+                  "title": "[🎓] Edukasi",
                   "description": "Menu Edukasi",
                   "rowId": ".? edukasi"
                 }, {
@@ -296,7 +296,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
                   "description": "Menurut Kerang ajaib....",
                   "rowId": ".? kerangajaib"
                 }, {
-                  "title": "[📑] Quotes",
+                  "title": "[📓] Quotes",
                   "description": "Menu Quotes",
                   "rowId": ".? quotes"
                 }, {
@@ -324,11 +324,11 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
                   "description": "Menu Nulis & Logo",
                   "rowId": ".? nulis"
                 }, {
-                  "title": "[📺] Downloader",
+                  "title": "[💻] Downloader",
                   "description": "Download Sesuatu Di Bot",
                   "rowId": ".? downloader"
                 }, {
-                  "title": "[🔧] Tools",
+                  "title": "[🛠️] Tools",
                   "description": "Tools Yang Bisa di Gunakan Di Bot",
                   "rowId": ".? tools"
                 }, {
@@ -356,7 +356,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
                   "description": "Cari Anime Di Bot",
                   "rowId": ".? anime"
                 }, {
-                  "title": "[ℹ️] Info",
+                  "title": "[⚠️] Info",
                   "description": "Info Tentang Bot",
                   "rowId": ".? info"
                 }, {
@@ -464,7 +464,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
     throw e
   }
 }
-handler.help = ['menu', '?', 'help']
+handler.help = ['menu', '?', 'help','Alyaa','alyaa'AlyaaXzy]
 handler.tags = ['main']
 handler.command = /^(menu|\?|help)$/i
 
@@ -483,18 +483,18 @@ function clockString(ms) {
 }
 function ucapan() {
   const time = moment.tz('Asia/Jakarta').format('HH')
-  res = "Selamat dinihari"
+  res = "Selamat Pagi kaum gadang:v"
   if (time >= 4) {
-    res = "Selamat pagi"
+    res = "Pagi Tod🗿"
   }
   if (time > 10) {
-    res = "Selamat siang"
+    res = "Siang Tod🗿"
   }
   if (time >= 15) {
-    res = "Selamat sore"
+    res = "Sore Tod🗿"
   }
   if (time >= 18) {
-    res = "Selamat malam"
+    res = "Malam Tod🗿"
   }
   return res
 }
