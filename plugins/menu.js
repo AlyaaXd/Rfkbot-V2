@@ -8,30 +8,30 @@ const chats = conn.chats.all()
 const groups = chats.filter(v => v.jid.endsWith('g.us'))
 const defaultMenu = {
   before: `
-┏━━━━「 ${namabot} 」━━ ❖
-┃❖ Hai, %name!
+┏━━━━「 ${namabot} 」━━⬣
+┃⬡ Hai, %name!
 ┃
-┃❖ Tersisa *%limit Limit*
-┃❖ Role *%role*
-┃❖ Level *%level (%exp / %maxexp)* 
-┃❖ [%xp4levelup]
-┃❖ %totalexp XP secara Total
+┃⬡ Tersisa *%limit Limit*
+┃⬡ Role *%role*
+┃⬡ Level *%level (%exp / %maxexp)* 
+┃⬡ [%xp4levelup]
+┃⬡ %totalexp XP secara Total
 ┃ 
-┃❖ Hari : *%week %weton* 
-┃❖ Tanggal : *%date*
-┃❖ Tanggal Islam : 
-┃❖ *%dateIslamic*
-┃❖ Waktu: *%time*
+┃⬡ Hari : *%week %weton* 
+┃⬡ Tanggal : *%date*
+┃⬡ Tanggal Islam : 
+┃⬡ *%dateIslamic*
+┃⬡ Waktu: *%time*
 ┃
-┃❖ Uptime: *%uptime (%muptime)*
-┃❖ Database: %rtotalreg dari %totalreg
-┃❖ Github:
+┃⬡ Uptime: *%uptime (%muptime)*
+┃⬡ Database: %rtotalreg dari %totalreg
+┃⬡ Github:
 ┃ https://github.com/AlyaaXd/RfkbotV1
 ┃
-┗━━━━━━ ❖`.trimStart(),
-  header: '┏━━〔 %category 〕━ ❖',
+┗━━━━━━⬣`.trimStart(),
+  header: '┏━━〔 %category 〕━⬣',
   body: '┃⬡%cmd %islimit %isPremium',
-  footer: '┗━━ ❖\n',
+  footer: '┗━━⬣\n',
   after: `
 *%npmname@^%version*
 ${'```%npmdesc```'}
@@ -231,21 +231,21 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
         "listMessage": {
           "title": `${ucapan()}, ${name}`.trim(),
           "description": `
-┏━━━「 Status 」━━ ❖
-┃❖ Aktif selama ${uptime}
-┃❖ Baterai ${conn.battery != undefined ? `${conn.battery.value}% ${conn.battery.live ? '🔌 pengisian' : ''}` : 'tidak diketahui'}
-┃❖ *${Object.keys(global.db.data.users).length}* Pengguna
-┃❖ *${totaljadibot.length}* Jadibot
-┃❖ *${conn.blocklist.length}* Terblock
-┃❖ *${Object.entries(global.db.data.chats).filter(chat => chat[1].isBanned).length}* Chat Terbanned
-┃❖ *${Object.entries(global.db.data.users).filter(user => user[1].banned).length}* Pengguna Terbanned
+┏━━━「 Status 」━━⬣
+┃⬡ Aktif selama ${uptime}
+┃⬡ Baterai ${conn.battery != undefined ? `${conn.battery.value}% ${conn.battery.live ? '🔌 pengisian' : ''}` : 'tidak diketahui'}
+┃⬡ *${Object.keys(global.db.data.users).length}* Pengguna
+┃⬡ *${totaljadibot.length}* Jadibot
+┃⬡ *${conn.blocklist.length}* Terblock
+┃⬡ *${Object.entries(global.db.data.chats).filter(chat => chat[1].isBanned).length}* Chat Terbanned
+┃⬡ *${Object.entries(global.db.data.users).filter(user => user[1].banned).length}* Pengguna Terbanned
 ┃
-┃❖ Script by AlyaaXzy ?
-┃❖ Yt : AlyaaXzy ?
-┃❖ Base nurutomo
-┃❖ pesan: *yg rubah sumber kek
-┃  Kontol*
-┗━━━━━━━━ ❖`.trim(),
+┃⬡ Script by AlyaaXzy ?
+┃⬡ Yt : AlyaaXzy ?
+┃⬡ Base nurutomo
+┃⬡ pesan: Make fitur nfsw ke
+┃      blokir permanent
+┗━━━━━━━━⬣`.trim(),
           "buttonText": "Klik Disini",
           "listType": "SINGLE_SELECT",
           "sections": [
