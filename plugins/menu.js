@@ -9,23 +9,23 @@ const groups = chats.filter(v => v.jid.endsWith('g.us'))
 const defaultMenu = {
   before: `
 ┏━━━━「 ${namabot} 」━━⬣
-┃⬡ 𝐇𝐀𝐈, %name!
+┃⬡ Hai, %name!
 ┃
-┃⬡ 𝐓𝐞𝐫𝐬𝐢𝐬𝐚 *%limit Limit*
-┃⬡ 𝐑𝐨𝐥𝐞 *%role*
-┃⬡ 𝐋𝐞𝐯𝐞𝐥 *%level (%exp / %maxexp)* 
+┃⬡ Tersisa *%limit Limit*
+┃⬡ Role *%role*
+┃⬡ Level *%level (%exp / %maxexp)* 
 ┃⬡ [%xp4levelup]
-┃⬡ %totalexp 𝐗𝐏 𝐒𝐞𝐜𝐚𝐫𝐚 𝐓𝐨𝐭𝐚𝐥
+┃⬡ %totalexp XP secara Total
 ┃ 
-┃⬡ 𝐇𝐚𝐫𝐢 : *%week %weton* 
-┃⬡ 𝐓𝐚𝐧𝐠𝐠𝐚𝐥 : *%date*
-┃⬡ 𝐓𝐚𝐧𝐠𝐠𝐚𝐥 𝐈𝐬𝐥𝐚𝐦 : 
+┃⬡ Hari : *%week %weton* 
+┃⬡ Tanggal : *%date*
+┃⬡ Tanggal Islam : 
 ┃⬡ *%dateIslamic*
-┃⬡ 𝐖𝐚𝐤𝐭𝐮: *%time*
+┃⬡ Waktu: *%time*
 ┃
-┃⬡ 𝐔𝐩𝐭𝐢𝐦𝐞: *%uptime (%muptime)*
-┃⬡ 𝐃𝐚𝐭𝐚𝐛𝐚𝐬𝐞: %rtotalreg dari %totalreg
-┃⬡ 𝐆𝐢𝐭𝐡𝐮𝐛:
+┃⬡ Uptime: *%uptime (%muptime)*
+┃⬡ Database: %rtotalreg dari %totalreg
+┃⬡ Github:
 ┃ https://github.com/AlyaaXd/RfkbotV1
 ┃
 ┗━━━━━━⬣`.trimStart(),
@@ -47,44 +47,44 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
     let uptime = clockString(_uptime)
   let tags
   let teks = `${args[0]}`.toLowerCase()
-  let arrayMenu = ['𝐚𝐥𝐥', '', '𝐞𝐝𝐮𝐤𝐚𝐬𝐢', '𝐧𝐞𝐰𝐬', '𝐧𝐬𝐟𝐰', '𝐱𝐩', '𝐬𝐭𝐢𝐜𝐤𝐞𝐫', '𝐢𝐦𝐚𝐠𝐞', '𝐚𝐧𝐢𝐦𝐞', '𝐤𝐞𝐫𝐚𝐧𝐠𝐚𝐣𝐚𝐢𝐛', '𝐪𝐮𝐨𝐭𝐞𝐬', '𝐚𝐝𝐦𝐢𝐧', '𝐫𝐩𝐠', '𝐠𝐫𝐮𝐩', '𝐩𝐫𝐞𝐦𝐢𝐮𝐦', '𝐢𝐧𝐭𝐞𝐫𝐧𝐞𝐭', '𝐚𝐧𝐨𝐧𝐲𝐦𝐨𝐮𝐬', '𝐧𝐮𝐥𝐢𝐬', '𝐝𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐞𝐫', '𝐭𝐨𝐨𝐥𝐬', '𝐟𝐮𝐧', '𝐝𝐚𝐭𝐚𝐛𝐚𝐬𝐞', '𝐪𝐮𝐫𝐚𝐧', '𝐚𝐮𝐝𝐢𝐨', '𝐣𝐚𝐝𝐢𝐛𝐨𝐭', '𝐢𝐧𝐟𝐨', '𝐯𝐨𝐭𝐞', '𝐭𝐚𝐧𝐩𝐚𝐤𝐚𝐭𝐞𝐠𝐨𝐫𝐢', '𝐨𝐰𝐧𝐞𝐫']
+  let arrayMenu = ['all', 'game', 'edukasi', 'news', 'nsfw', 'xp', 'stiker', 'image', 'anime', 'kerangajaib', 'quotes', 'admin', 'rpg', 'grup', 'premium', 'internet', 'anonymous', 'nulis', 'downloader', 'tools', 'fun', 'database', 'quran', 'audio', 'jadibot', 'info', 'vote', 'tanpakategori', 'owner']
   if (!arrayMenu.includes(teks)) teks = '404'
-  if (teks == '𝐀𝐥𝐥') tags = {
-    'main': '𝐔𝐭𝐚𝐦𝐚',
-    'game': '𝐆𝐚𝐦𝐞',
-    'xp': '𝐄𝐱𝐩 & 𝐋𝐢𝐦𝐢𝐭',
-    'nsfw': `𝐍𝐅𝐒𝐖 ${global.opts['nsfw'] ? '' : '(Dinonaktifkan)'}`,
-    'sticker': '𝐒𝐭𝐢𝐜𝐤𝐞𝐫',
-    'edukasi': '𝐄𝐝𝐮𝐤𝐚𝐬𝐢',
-    'news': '𝐍𝐞𝐰𝐬',
-    'kerang': '𝐊𝐞𝐫𝐚𝐧𝐠 𝐀𝐣𝐚𝐢𝐛',
-    'quotes': '𝐐𝐮𝐨𝐭𝐞𝐬',
-    'admin': `𝐀𝐝𝐦𝐢𝐧 ${global.opts['restrict'] ? '' : '(Dinonaktifkan)'}`,
-    'rpg': '𝐄𝐩𝐢𝐜 𝐑𝐩𝐠',
-    'group': '𝐆𝐫𝐮𝐩',
-    'anime': '𝐀𝐧𝐢𝐦𝐞',
-    'premium': '𝐏𝐫𝐞𝐦𝐢𝐮𝐦',
-    'internet': '𝐈𝐧𝐭𝐞𝐫𝐧𝐞𝐭',
-    'image': '𝐑𝐚𝐧𝐝𝐨𝐦 𝐈𝐦𝐚𝐠𝐞',
-    'anonymous': '𝐀𝐧𝐨𝐧𝐲𝐦𝐨𝐮𝐬 𝐂𝐡𝐚𝐭',
-    'nulis': '𝐌𝐚𝐠𝐞𝐫𝐍𝐮𝐥𝐢𝐬 & 𝐋𝐨𝐠𝐨',
-    'downloader': '𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐞𝐫',
-    'tools': '𝐓𝐨𝐨𝐥𝐬',
-    'fun': '𝐅𝐮𝐧',
-    'database': '𝐃𝐚𝐭𝐚𝐛𝐚𝐬𝐞',
-    'vote': '𝐕𝐨𝐭𝐢𝐧𝐠',
-    'absen': '𝐀𝐛𝐬𝐞𝐧',
-    'quran': '𝐈𝐬𝐥𝐚𝐦',
-    'audio': '𝐏𝐞𝐧𝐠𝐮𝐛𝐚𝐡 𝐒𝐮𝐚𝐫𝐚',
-    'jadibot': '𝐉𝐚𝐝𝐢𝐛𝐨𝐭',
-    'info': '𝐈𝐧𝐟𝐨',
-    '': '𝐓𝐚𝐧𝐩𝐚 𝐊𝐚𝐭𝐞𝐠𝐨𝐫𝐢',
+  if (teks == 'all') tags = {
+    'main': 'Utama',
+    'game': 'Game',
+    'xp': 'Exp & Limit',
+    'nsfw': `NSFW ${global.opts['nsfw'] ? '' : '(Dinonaktifkan)'}`,
+    'sticker': 'Stiker',
+    'edukasi': 'Edukasi',
+    'news': 'News',
+    'kerang': 'Kerang Ajaib',
+    'quotes': 'Quotes',
+    'admin': `Admin ${global.opts['restrict'] ? '' : '(Dinonaktifkan)'}`,
+    'rpg': 'Epic Rpg',
+    'group': 'Grup',
+    'anime': 'Anime',
+    'premium': 'Premium',
+    'internet': 'Internet',
+    'image': 'Random Image',
+    'anonymous': 'Anonymous Chat',
+    'nulis': 'MagerNulis & Logo',
+    'downloader': 'Downloader',
+    'tools': 'Tools',
+    'fun': 'Fun',
+    'database': 'Database',
+    'vote': 'Voting',
+    'absen': 'Absen',
+    'quran': 'Islam',
+    'audio': 'Pengubah Suara',
+    'jadibot': 'Jadi Bot',
+    'info': 'Info',
+    '': 'Tanpa Kategori',
   }
   if (teks == 'game') tags = {
-    'game': '𝐆𝐚𝐦𝐞'
+    'game': 'Game'
   }
   if (teks == 'xp') tags = {
-    'xp': '𝐄𝐱𝐩 & 𝐋𝐢𝐦𝐢𝐭'
+    'xp': 'Exp & Limit'
   }
   if (teks == 'news') tags = {
     'news': 'News'
@@ -232,19 +232,19 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
           "title": `${ucapan()}, ${name}`.trim(),
           "description": `
 ┏━━━「 Status 」━━⬣
-┃⬡ 𝐀𝐤𝐭𝐢𝐟 𝐬𝐞𝐥𝐚𝐦𝐚 ${uptime}
-┃⬡ 𝐁𝐚𝐭𝐞𝐫𝐚𝐢 ${conn.battery != undefined ? `${conn.battery.value}% ${conn.battery.live ? '🔌 𝐏𝐞𝐧𝐠𝐢𝐬𝐢𝐚𝐧' : ''}` : '𝐓𝐢𝐝𝐚𝐤 𝐝𝐢𝐤𝐞𝐭𝐚𝐡𝐮𝐢'}
-┃⬡ *${Object.keys(global.db.data.users).length}* 𝐏𝐞𝐧𝐠𝐠𝐮𝐧𝐚
-┃⬡ *${totaljadibot.length}* 𝐉𝐚𝐝𝐢𝐛𝐨𝐭
-┃⬡ *${conn.blocklist.length}* 𝐓𝐞𝐫𝐛𝐥𝐨𝐜𝐤
-┃⬡ *${Object.entries(global.db.data.chats).filter(chat => chat[1].isBanned).length}* 𝐂𝐡𝐚𝐭 𝐓𝐞𝐫𝐛𝐚𝐧𝐧𝐞𝐝
-┃⬡ *${Object.entries(global.db.data.users).filter(user => user[1].banned).length}* 𝐏𝐞𝐧𝐠𝐠𝐮𝐧𝐚 𝐓𝐞𝐫𝐛𝐚𝐧𝐧𝐞𝐝
+┃⬡ Aktif selama ${uptime}
+┃⬡ Baterai ${conn.battery != undefined ? `${conn.battery.value}% ${conn.battery.live ? '🔌 pengisian' : ''}` : 'tidak diketahui'}
+┃⬡ *${Object.keys(global.db.data.users).length}* Pengguna
+┃⬡ *${totaljadibot.length}* Jadibot
+┃⬡ *${conn.blocklist.length}* Terblock
+┃⬡ *${Object.entries(global.db.data.chats).filter(chat => chat[1].isBanned).length}* Chat Terbanned
+┃⬡ *${Object.entries(global.db.data.users).filter(user => user[1].banned).length}* Pengguna Terbanned
 ┃
-┃⬡ 𝐒𝐜𝐫𝐢𝐩𝐭 𝐁𝐲 𝐀𝐥𝐲𝐚𝐚𝐗𝐳𝐲
-┃⬡ 𝐘𝐭 : 𝐀𝐥𝐲𝐚𝐚𝐗𝐳𝐲 ?
-┃⬡ 𝐁𝐚𝐬𝐞 : 𝐍𝐮𝐫𝐮𝐭𝐨𝐦𝐥
-┃⬡ 𝐏𝐞𝐬𝐚𝐧: 𝐌𝐚𝐤𝐞 𝐅𝐢𝐭𝐮𝐫 𝐍𝐟𝐬𝐰 𝐤𝐞
-┃      𝐁𝐚𝐧 𝐏𝐞𝐫𝐦𝐚𝐧𝐞𝐧𝐭
+┃⬡ Script by AlyaaXzy ?
+┃⬡ Yt : AlyaaXzy ?
+┃⬡ Base nurutomo
+┃⬡ pesan: Make fitur nfsw ke
+┃      blokir permanent
 ┗━━━━━━━━⬣`.trim(),
           "buttonText": "Klik Disini",
           "listType": "SINGLE_SELECT",
@@ -253,119 +253,119 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
               "rows": [
                 {
                   "title": `[🧾] Semua Perintah`,
-                  "description": "Memberikan Semua Fitur Bot",
+                  "description": "YT AlyaaXzy ?",
                   "rowId": ".? all"
                 }, {
                   "title": "[🕌] Islam",
-                  "description": "Menu Tentang Islam",
+                  "description": "YT AlyaaXzy ?",
                   "rowId": ".? quran"
                 }, {
                   "title": "[🎓] Edukasi",
-                  "description": "Menu Edukasi",
+                  "description": "YT AlyaaXzy ?",
                   "rowId": ".? edukasi"
                 }, {
                   "title": "[📰] News",
-                  "description": "Menu Berita",
+                  "description": "YT AlyaaXzy ?",
                   "rowId": ".? News"
                 },  {
                   "title": "[🎮] Game",
-                  "description": "Menu Game",
+                  "description": "YT AlyaaXzy ?",
                   "rowId": ".? game"
                 }, {
                   "title": "[🗺️] Epic Rpg",
-                  "description": "Menu Game RPG",
+                  "description": "YT AlyaaXzy ?",
                   "rowId": ".? rpg"
                 }, {
                   "title": "[📈] XP",
-                  "description": "XP Dan Level",
+                  "description": "YT AlyaaXzy ?",
                   "rowId": ".? xp"
                 },  {
                   "title": "[🔞] NSFW",
-                  "description": "Menu Bokep",
+                  "description": "YT AlyaaXzy ?",
                   "rowId": ".? nsfw"
                 }, {
                   "title": "[🖼️] Random Image",
-                  "description": "Menu Foto Random",
+                  "description": "YT AlyaaXzy ?",
                   "rowId": ".? image"
                 }, {
                   "title": "[🎇] Stiker",
-                  "description": "Menu Buat Stiker",
+                  "description": "YT AlyaaXzy ?",
                   "rowId": ".? stiker"
                 }, {
                   "title": "[🐚] Kerang Ajaib",
-                  "description": "Menurut Kerang ajaib....",
+                  "description": "YT AlyaaXzy ?",
                   "rowId": ".? kerangajaib"
                 }, {
                   "title": "[📓] Quotes",
-                  "description": "Menu Quotes",
+                  "description": "YT AlyaaXzy ?",
                   "rowId": ".? quotes"
                 }, {
                   "title": "[🏛️] Admin",
-                  "description": "Menu Admin Group",
+                  "description": "YT AlyaaXzy ?",
                   "rowId": ".? admin"
                 }, {
                   "title": "[🏢] Grup",
-                  "description": "Menu Group",
+                  "description": "YT AlyaaXzy ?",
                   "rowId": ".? grup"
                 }, {
                   "title": "[🔝] Premium",
-                  "description": "Menu Untuk Premium",
+                  "description": "YT AlyaaXzy ?",
                   "rowId": ".? premium"
                 }, {
                   "title": "[🖥️] Internet",
-                  "description": "Cari Sesuatu Di Bot",
+                  "description": "YT AlyaaXzy ?",
                   "rowId": ".? internet"
                 }, {
                   "title": "[🥷] Anonymous",
-                  "description": "Mainkan Anonymous Chat",
+                  "description": "YT AlyaaXzy ?",
                   "rowId": ".? anonymous"
                 }, {
                   "title": "[✒️] Nulis & Logo",
-                  "description": "Menu Nulis & Logo",
+                  "description": "YT AlyaaXzy ?",
                   "rowId": ".? nulis"
                 }, {
                   "title": "[💻] Downloader",
-                  "description": "Download Sesuatu Di Bot",
+                  "description": "YT AlyaaXzy ?",
                   "rowId": ".? downloader"
                 }, {
                   "title": "[🛠️] Tools",
-                  "description": "Tools Yang Bisa di Gunakan Di Bot",
+                  "description": "YT AlyaaXzy ?",
                   "rowId": ".? tools"
                 }, {
                   "title": "[🎇] Fun",
-                  "description": "Menu Ceria",
+                  "description": "YT AlyaaXzy ?",
                   "rowId": ".? fun"
                 }, {
                   "title": "[📂] Database",
-                  "description": "Simpan Sesuatu Di Bot",
+                  "description": "YT AlyaaXzy ?",
                   "rowId": ".? database"
                 }, {
                   "title": "[📝] Vote & Absen",
-                  "description": "Menu Vote & Absen",
+                  "description": "YT AlyaaXzy ?",
                   "rowId": ".? vote"
                 }, {
                   "title": "[🎙️] Pengubah Suara",
-                  "description": "Ubah Suaramu",
+                  "description": "YT AlyaaXzy ?",
                   "rowId": ".? audio"
                 }, {
                   "title": "[🤖] Jadi Bot",
-                  "description": "Jadi Bot",
+                  "description": "YT AlyaaXzy ?",
                   "rowId": ".? jadibot"
                 }, {
                   "title": "[⛩️] Anime",
-                  "description": "Cari Anime Di Bot",
+                  "description": "YT AlyaaXzy ?",
                   "rowId": ".? anime"
                 }, {
                   "title": "[⚠️] Info",
-                  "description": "Info Tentang Bot",
+                  "description": "YT AlyaaXzy ?",
                   "rowId": ".? info"
                 }, {
                   "title": "Tanpa Kategori",
-                  "description": "",
+                  "description": "YT AlyaaXzy ?",
                   "rowId": ".? tanpakategori"
                 }, {
                   "title": "[🧑‍💻] Owner",
-                  "description": "Menu Khusu Owner",
+                  "description": "YT AlyaaXzy ?",
                   "rowId": ".? owner"
                 }
               ]
@@ -483,18 +483,18 @@ function clockString(ms) {
 }
 function ucapan() {
   const time = moment.tz('Asia/Jakarta').format('HH')
-  res = "𝐒𝐞𝐥𝐚𝐦𝐚𝐭 𝐏𝐚𝐠𝐢 𝐊𝐚𝐮𝐦 𝐆𝐚𝐝𝐚𝐧𝐠"
+  res = "Selamat Pagi kaum gadang🤙"
   if (time >= 4) {
-    res = "𝐒𝐞𝐥𝐚𝐦𝐚𝐭 𝐏𝐚𝐠𝐢"
+    res = "Selamat Pagi"
   }
   if (time > 10) {
-    res = "𝐒𝐞𝐥𝐚𝐦𝐚𝐭 𝐒𝐢𝐚𝐧𝐠"
+    res = "Selamat Siang"
   }
   if (time >= 15) {
-    res = "𝐒𝐞𝐥𝐚𝐦𝐚𝐭 𝐒𝐨𝐫𝐞"
+    res = "Selamat Sore"
   }
   if (time >= 18) {
-    res = "𝐒𝐞𝐥𝐚𝐦𝐚𝐭 𝐌𝐚𝐥𝐚𝐦"
+    res = "Selamat Malam"
   }
   return res
 }
