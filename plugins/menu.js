@@ -47,7 +47,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
     let uptime = clockString(_uptime)
   let tags
   let teks = `${args[0]}`.toLowerCase()
-  let arrayMenu = ['all', 'game', 'edukasi', 'news', 'nsfw', 'xp', 'stiker', 'image', 'anime', 'kerangajaib', 'quotes', 'admin', 'rpg', 'grup', 'premium', 'internet', 'anonymous', 'nulis', 'downloader', 'tools', 'fun', 'database', 'quran', 'audio', 'jadibot', 'info', 'vote', 'tanpakategori', 'owner']
+  let arrayMenu = ['𝐚𝐥𝐥', '', '𝐞𝐝𝐮𝐤𝐚𝐬𝐢', '𝐧𝐞𝐰𝐬', '𝐧𝐬𝐟𝐰', '𝐱𝐩', '𝐬𝐭𝐢𝐜𝐤𝐞𝐫', '𝐢𝐦𝐚𝐠𝐞', '𝐚𝐧𝐢𝐦𝐞', '𝐤𝐞𝐫𝐚𝐧𝐠𝐚𝐣𝐚𝐢𝐛', '𝐪𝐮𝐨𝐭𝐞𝐬', '𝐚𝐝𝐦𝐢𝐧', '𝐫𝐩𝐠', '𝐠𝐫𝐮𝐩', '𝐩𝐫𝐞𝐦𝐢𝐮𝐦', '𝐢𝐧𝐭𝐞𝐫𝐧𝐞𝐭', '𝐚𝐧𝐨𝐧𝐲𝐦𝐨𝐮𝐬', '𝐧𝐮𝐥𝐢𝐬', '𝐝𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐞𝐫', '𝐭𝐨𝐨𝐥𝐬', '𝐟𝐮𝐧', '𝐝𝐚𝐭𝐚𝐛𝐚𝐬𝐞', '𝐪𝐮𝐫𝐚𝐧', '𝐚𝐮𝐝𝐢𝐨', '𝐣𝐚𝐝𝐢𝐛𝐨𝐭', '𝐢𝐧𝐟𝐨', '𝐯𝐨𝐭𝐞', '𝐭𝐚𝐧𝐩𝐚𝐤𝐚𝐭𝐞𝐠𝐨𝐫𝐢', '𝐨𝐰𝐧𝐞𝐫']
   if (!arrayMenu.includes(teks)) teks = '404'
   if (teks == '𝐀𝐥𝐥') tags = {
     'main': '𝐔𝐭𝐚𝐦𝐚',
@@ -61,30 +61,30 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
     'quotes': '𝐐𝐮𝐨𝐭𝐞𝐬',
     'admin': `𝐀𝐝𝐦𝐢𝐧 ${global.opts['restrict'] ? '' : '(Dinonaktifkan)'}`,
     'rpg': '𝐄𝐩𝐢𝐜 𝐑𝐩𝐠',
-    'group': 'Grup',
-    'anime': 'Anime',
-    'premium': 'Premium',
-    'internet': 'Internet',
-    'image': 'Random Image',
-    'anonymous': 'Anonymous Chat',
-    'nulis': 'MagerNulis & Logo',
-    'downloader': 'Downloader',
-    'tools': 'Tools',
-    'fun': 'Fun',
-    'database': 'Database',
-    'vote': 'Voting',
-    'absen': 'Absen',
-    'quran': 'Islam',
-    'audio': 'Pengubah Suara',
-    'jadibot': 'Jadi Bot',
-    'info': 'Info',
-    '': 'Tanpa Kategori',
+    'group': '𝐆𝐫𝐮𝐩',
+    'anime': '𝐀𝐧𝐢𝐦𝐞',
+    'premium': '𝐏𝐫𝐞𝐦𝐢𝐮𝐦',
+    'internet': '𝐈𝐧𝐭𝐞𝐫𝐧𝐞𝐭',
+    'image': '𝐑𝐚𝐧𝐝𝐨𝐦 𝐈𝐦𝐚𝐠𝐞',
+    'anonymous': '𝐀𝐧𝐨𝐧𝐲𝐦𝐨𝐮𝐬 𝐂𝐡𝐚𝐭',
+    'nulis': '𝐌𝐚𝐠𝐞𝐫𝐍𝐮𝐥𝐢𝐬 & 𝐋𝐨𝐠𝐨',
+    'downloader': '𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐞𝐫',
+    'tools': '𝐓𝐨𝐨𝐥𝐬',
+    'fun': '𝐅𝐮𝐧',
+    'database': '𝐃𝐚𝐭𝐚𝐛𝐚𝐬𝐞',
+    'vote': '𝐕𝐨𝐭𝐢𝐧𝐠',
+    'absen': '𝐀𝐛𝐬𝐞𝐧',
+    'quran': '𝐈𝐬𝐥𝐚𝐦',
+    'audio': '𝐏𝐞𝐧𝐠𝐮𝐛𝐚𝐡 𝐒𝐮𝐚𝐫𝐚',
+    'jadibot': '𝐉𝐚𝐝𝐢𝐛𝐨𝐭',
+    'info': '𝐈𝐧𝐟𝐨',
+    '': '𝐓𝐚𝐧𝐩𝐚 𝐊𝐚𝐭𝐞𝐠𝐨𝐫𝐢',
   }
   if (teks == 'game') tags = {
-    'game': 'Game'
+    'game': '𝐆𝐚𝐦𝐞'
   }
   if (teks == 'xp') tags = {
-    'xp': 'Exp & Limit'
+    'xp': '𝐄𝐱𝐩 & 𝐋𝐢𝐦𝐢𝐭'
   }
   if (teks == 'news') tags = {
     'news': 'News'
