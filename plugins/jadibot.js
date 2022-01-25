@@ -70,7 +70,7 @@ handler.help = ['jadibot', 'premium']
 handler.tags = ['jadibot', 'premium']
 
 handler.command = /^jadibot$/i
-handler.premium = true
+handler.premium = flase
 handler.private = true
 handler.limit = 15
 
