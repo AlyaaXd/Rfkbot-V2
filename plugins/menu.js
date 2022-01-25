@@ -9,23 +9,23 @@ const groups = chats.filter(v => v.jid.endsWith('g.us'))
 const defaultMenu = {
   before: `
 ┏━━━━「 ${namabot} 」━━⬣
-┃⬡ Hai, %name!
+┃⬡ 𝐇𝐀𝐈, %name!
 ┃
-┃⬡ Tersisa *%limit Limit*
-┃⬡ Role *%role*
-┃⬡ Level *%level (%exp / %maxexp)* 
+┃⬡ 𝐓𝐞𝐫𝐬𝐢𝐬𝐚 *%limit Limit*
+┃⬡ 𝐑𝐨𝐥𝐞 *%role*
+┃⬡ 𝐋𝐞𝐯𝐞𝐥 *%level (%exp / %maxexp)* 
 ┃⬡ [%xp4levelup]
-┃⬡ %totalexp XP secara Total
+┃⬡ %totalexp 𝐗𝐏 𝐒𝐞𝐜𝐚𝐫𝐚 𝐓𝐨𝐭𝐚𝐥
 ┃ 
-┃⬡ Hari : *%week %weton* 
-┃⬡ Tanggal : *%date*
-┃⬡ Tanggal Islam : 
+┃⬡ 𝐇𝐚𝐫𝐢 : *%week %weton* 
+┃⬡ 𝐓𝐚𝐧𝐠𝐠𝐚𝐥 : *%date*
+┃⬡ 𝐓𝐚𝐧𝐠𝐠𝐚𝐥 𝐈𝐬𝐥𝐚𝐦 : 
 ┃⬡ *%dateIslamic*
-┃⬡ Waktu: *%time*
+┃⬡ 𝐖𝐚𝐤𝐭𝐮: *%time*
 ┃
-┃⬡ Uptime: *%uptime (%muptime)*
-┃⬡ Database: %rtotalreg dari %totalreg
-┃⬡ Github:
+┃⬡ 𝐔𝐩𝐭𝐢𝐦𝐞: *%uptime (%muptime)*
+┃⬡ 𝐃𝐚𝐭𝐚𝐛𝐚𝐬𝐞: %rtotalreg dari %totalreg
+┃⬡ 𝐆𝐢𝐭𝐡𝐮𝐛:
 ┃ https://github.com/AlyaaXd/RfkbotV1
 ┃
 ┗━━━━━━⬣`.trimStart(),
@@ -49,18 +49,18 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
   let teks = `${args[0]}`.toLowerCase()
   let arrayMenu = ['all', 'game', 'edukasi', 'news', 'nsfw', 'xp', 'stiker', 'image', 'anime', 'kerangajaib', 'quotes', 'admin', 'rpg', 'grup', 'premium', 'internet', 'anonymous', 'nulis', 'downloader', 'tools', 'fun', 'database', 'quran', 'audio', 'jadibot', 'info', 'vote', 'tanpakategori', 'owner']
   if (!arrayMenu.includes(teks)) teks = '404'
-  if (teks == 'all') tags = {
-    'main': 'Utama',
-    'game': 'Game',
-    'xp': 'Exp & Limit',
-    'nsfw': `NSFW ${global.opts['nsfw'] ? '' : '(Dinonaktifkan)'}`,
-    'sticker': 'Stiker',
-    'edukasi': 'Edukasi',
-    'news': 'News',
-    'kerang': 'Kerang Ajaib',
-    'quotes': 'Quotes',
-    'admin': `Admin ${global.opts['restrict'] ? '' : '(Dinonaktifkan)'}`,
-    'rpg': 'Epic Rpg',
+  if (teks == '𝐀𝐥𝐥') tags = {
+    'main': '𝐔𝐭𝐚𝐦𝐚',
+    'game': '𝐆𝐚𝐦𝐞',
+    'xp': '𝐄𝐱𝐩 & 𝐋𝐢𝐦𝐢𝐭',
+    'nsfw': `𝐍𝐅𝐒𝐖 ${global.opts['nsfw'] ? '' : '(Dinonaktifkan)'}`,
+    'sticker': '𝐒𝐭𝐢𝐜𝐤𝐞𝐫',
+    'edukasi': '𝐄𝐝𝐮𝐤𝐚𝐬𝐢',
+    'news': '𝐍𝐞𝐰𝐬',
+    'kerang': '𝐊𝐞𝐫𝐚𝐧𝐠 𝐀𝐣𝐚𝐢𝐛',
+    'quotes': '𝐐𝐮𝐨𝐭𝐞𝐬',
+    'admin': `𝐀𝐝𝐦𝐢𝐧 ${global.opts['restrict'] ? '' : '(Dinonaktifkan)'}`,
+    'rpg': '𝐄𝐩𝐢𝐜 𝐑𝐩𝐠',
     'group': 'Grup',
     'anime': 'Anime',
     'premium': 'Premium',
@@ -232,19 +232,19 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
           "title": `${ucapan()}, ${name}`.trim(),
           "description": `
 ┏━━━「 Status 」━━⬣
-┃⬡ Aktif selama ${uptime}
-┃⬡ Baterai ${conn.battery != undefined ? `${conn.battery.value}% ${conn.battery.live ? '🔌 pengisian' : ''}` : 'tidak diketahui'}
-┃⬡ *${Object.keys(global.db.data.users).length}* Pengguna
-┃⬡ *${totaljadibot.length}* Jadibot
-┃⬡ *${conn.blocklist.length}* Terblock
-┃⬡ *${Object.entries(global.db.data.chats).filter(chat => chat[1].isBanned).length}* Chat Terbanned
-┃⬡ *${Object.entries(global.db.data.users).filter(user => user[1].banned).length}* Pengguna Terbanned
+┃⬡ 𝐀𝐤𝐭𝐢𝐟 𝐬𝐞𝐥𝐚𝐦𝐚 ${uptime}
+┃⬡ 𝐁𝐚𝐭𝐞𝐫𝐚𝐢 ${conn.battery != undefined ? `${conn.battery.value}% ${conn.battery.live ? '🔌 𝐏𝐞𝐧𝐠𝐢𝐬𝐢𝐚𝐧' : ''}` : '𝐓𝐢𝐝𝐚𝐤 𝐝𝐢𝐤𝐞𝐭𝐚𝐡𝐮𝐢'}
+┃⬡ *${Object.keys(global.db.data.users).length}* 𝐏𝐞𝐧𝐠𝐠𝐮𝐧𝐚
+┃⬡ *${totaljadibot.length}* 𝐉𝐚𝐝𝐢𝐛𝐨𝐭
+┃⬡ *${conn.blocklist.length}* 𝐓𝐞𝐫𝐛𝐥𝐨𝐜𝐤
+┃⬡ *${Object.entries(global.db.data.chats).filter(chat => chat[1].isBanned).length}* 𝐂𝐡𝐚𝐭 𝐓𝐞𝐫𝐛𝐚𝐧𝐧𝐞𝐝
+┃⬡ *${Object.entries(global.db.data.users).filter(user => user[1].banned).length}* 𝐏𝐞𝐧𝐠𝐠𝐮𝐧𝐚 𝐓𝐞𝐫𝐛𝐚𝐧𝐧𝐞𝐝
 ┃
-┃⬡ Script by AlyaaXzy ?
-┃⬡ Yt : AlyaaXzy ?
-┃⬡ Base nurutomo
-┃⬡ pesan: Make fitur nfsw ke
-┃      blokir permanent
+┃⬡ 𝐒𝐜𝐫𝐢𝐩𝐭 𝐁𝐲 𝐀𝐥𝐲𝐚𝐚𝐗𝐳𝐲
+┃⬡ 𝐘𝐭 : 𝐀𝐥𝐲𝐚𝐚𝐗𝐳𝐲 ?
+┃⬡ 𝐁𝐚𝐬𝐞 : 𝐍𝐮𝐫𝐮𝐭𝐨𝐦𝐥
+┃⬡ 𝐏𝐞𝐬𝐚𝐧: 𝐌𝐚𝐤𝐞 𝐅𝐢𝐭𝐮𝐫 𝐍𝐟𝐬𝐰 𝐤𝐞
+┃      𝐁𝐚𝐧 𝐏𝐞𝐫𝐦𝐚𝐧𝐞𝐧𝐭
 ┗━━━━━━━━⬣`.trim(),
           "buttonText": "Klik Disini",
           "listType": "SINGLE_SELECT",
@@ -483,18 +483,18 @@ function clockString(ms) {
 }
 function ucapan() {
   const time = moment.tz('Asia/Jakarta').format('HH')
-  res = "Selamat Pagi kaum gadang🤙"
+  res = "𝐒𝐞𝐥𝐚𝐦𝐚𝐭 𝐏𝐚𝐠𝐢 𝐊𝐚𝐮𝐦 𝐆𝐚𝐝𝐚𝐧𝐠"
   if (time >= 4) {
-    res = "Pagi Tod🗿"
+    res = "𝐒𝐞𝐥𝐚𝐦𝐚𝐭 𝐏𝐚𝐠𝐢"
   }
   if (time > 10) {
-    res = "Siang Tod🗿"
+    res = "𝐒𝐞𝐥𝐚𝐦𝐚𝐭 𝐒𝐢𝐚𝐧𝐠"
   }
   if (time >= 15) {
-    res = "Sore Tod🗿"
+    res = "𝐒𝐞𝐥𝐚𝐦𝐚𝐭 𝐒𝐨𝐫𝐞"
   }
   if (time >= 18) {
-    res = "Malam Tod🗿"
+    res = "𝐒𝐞𝐥𝐚𝐦𝐚𝐭 𝐌𝐚𝐥𝐚𝐦"
   }
   return res
 }
