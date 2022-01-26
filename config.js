@@ -15,10 +15,10 @@ gc1 = ''
 gc2 = ''
 gc3 = ''
 global.linkGC = ['https://chat.whatsapp.com/HJ9pD2XJ8vq7whuAYOvT1Y', ''] // ganti jadi group lu
-global.owner = ['+1 (606) 698-0053'] // Put your number here //owner eval
-global.kontak = ['+1 (606) 698-0053','6289505165400'] //Ketika ada yang ngetik #owner
+global.owner = ['+1 (606) 698-0053','+1 (775) 403-5736'] // Put your number here //owner eval
+global.kontak = ['+1 (606) 698-0053','0'] //Ketika ada yang ngetik #owner
 global.mods = ['0'] // Want some help?
-global.prems = ['6289505165400','+1 (606) 698-0053'] // Premium user has unlimited limit
+global.prems = [','+1 (775) 403-5736'6289505165400','+1 (606) 698-0053'] // Premium user has unlimited limit
 global.APIs = { // API Prefix
   // name: 'https://website'
   nrtm: 'https://nurutomo.herokuapp.com', 
@@ -47,8 +47,8 @@ xteamkey = 'Dawnfrostkey'
 namaig = 'GAK ADA :)'
 namagithub = 'GAK ADA :)'
 kasihcaption = `Nih kak`
-namakontak1 = 'AlyaaXzy'
-namakontak2 = 'AlyaaXzy'
+namakontak1 = 'AlyaaXzy 1'
+namakontak2 = 'AlyaaXzy 2'
 
 //kasihcaption = `Nih Kak`
 
