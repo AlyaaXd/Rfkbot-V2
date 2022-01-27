@@ -30,7 +30,7 @@ global.APIs = { // API Prefix
 }
 global.APIKeys = { // APIKey Here
   // 'https://website': 'apikey'
-  'https://api.lolhuman.xyz': '12f2d16cb0b1d8019ada84ae',
+  'https://api.xteam.xyz': '12f2d16cb0b1d8019ada84ae',
   'https://zahirr-web.herokuapp.com': 'zahirgans',
   'https://api.zeks.xyz': 'apivinz',
   'https://pencarikode.xyz': 'pais',
