@@ -1,25 +1,16 @@
 let fetch = require('node-fetch')
-let handler = async (m, { conn, args }) => {
-if (!args[0]) throw 'Uhm..url nya mana?'
-m.reply(wait)
-let res = await fetch(`https://rset-apikey.herokuapp.com/api/tiktod/?Apikey=${lolkey}&url=${args[0]}`)
-if (!res.ok) throw await res.text()
-let json = await res.json()
-if (!json.status) throw json
-let { description, author, statistic, link } = json.result
-await conn.sendFile(m.chat, link, 'tt.mp4', `
-▶ ${statistic.playCount} Views
-❤ ${statistic.diggCount} Likes
-🔁 ${statistic.shareCount} Shares
-💬 ${statistic.commentCount} Comments
-- *By:* ${author.nickname} (${author.username})
-- *Desc:*
-${description}
-`.trim(), m)
-}
 
-handler.help = ['tiktok <url>']
+let handler = async (m, { conn, args }) => {
+  if (!args[0]) throw 'Uhm...url nya mana?'
+  let res = await fetch(API('Velgrynd', '/api/tiktok', { url: args[0] }, 'apikey'))
+  if (!res.ok) throw await res.text()
+  let json = await res.json()
+  conn.sendFile(m.chat, json.result.video.no_watermark, 'tiktok.mp4', json.result.description, m)
+}
+handler.help = ['tiktok'].map(v => v + ' <url>')
 handler.tags = ['downloader']
-handler.command = /^tiktok$/i
+handler.command = /^(tik(tok)?(dl)?)$/i
+
+handler.limit = true
 
 module.exports = handler
