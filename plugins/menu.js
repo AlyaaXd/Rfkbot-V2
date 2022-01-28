@@ -245,6 +245,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
 ┃⬡ Base nurutomo
 ┃⬡ pesan: Make fitur nfsw ke
 ┃      blokir permanent
+┃⬡ © AlyaaXzy
 ┗━━━━━━━━⬣`.trim(),
           "buttonText": "Klik Disini",
           "listType": "SINGLE_SELECT",
