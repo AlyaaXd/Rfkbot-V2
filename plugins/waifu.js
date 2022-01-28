@@ -1,7 +1,7 @@
 let fetch = require('node-fetch')
 let handler = async (m, { conn, usedPrefix, command }) => {
 m.reply(wait)
-  let res = await fetch('y')
+  let res = await fetch('https://api.lolhuman.xyz/api/random/waifu?apikey=12f2d16cb0b1d8019ada84ae')
   if (!res.ok) throw await res.text()
   let json = await res.json()
   if (!json.url) throw 'Error!'
