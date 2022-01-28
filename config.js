@@ -33,7 +33,7 @@ global.APIs = { // API Prefix
 }
 global.APIKeys = { // APIKey Here
   // 'https://website': 'apikey' (apikey kalian)
-  'https://api.sekha.tech' 'apirey',
+  'https://api.sekha.tech': 'apirey',
   'https://api.xteam.xyz': 'Dawnfrostkey',
   'https://api.lolhuman.xyz': 'RFK-Rey',
   'https://zahirr-web.herokuapp.com': 'zahirgans',
