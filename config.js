@@ -30,19 +30,21 @@ global.APIs = { // API Prefix
   zeks: 'https://api.zeks.me',
   pencarikode: 'https://pencarikode.xyz',
   LeysCoder: 'https://leyscoders-api.herokuapp.com'
+  AlyaaXzy: 'https://api.lolhuman.xyz',
 }
 global.APIKeys = { // APIKey Here
   // 'https://website': 'apikey' (apikey kalian)
   'https://api.sekha.tech': 'apirey',
   'https://api.xteam.xyz': 'Dawnfrostkey',
   'https://api.lolhuman.xyz': 'RFK-Rey',
+  'https://api.lolhuman.xyz': 'AlyaaXzy'
   'https://zahirr-web.herokuapp.com': 'zahirgans',
   'https://api.zeks.me': 'apivinz',
   'https://pencarikode.xyz': 'pais',
   'https://leyscoders-api.herokuapp.com': 'dappakntlll'
 }
 
-lolkey = 'RFK-Rey'
+lolkey = 'AlyaaXzy'
 zekskey = 'apivinz'
 xteamkey = 'Dawnfrostkey'
 //xteam        MIMINETBOT
