@@ -4,11 +4,11 @@ let handler = async (m, { conn }) => {
 ╠➥ *1 Bulan* :      *Rp 20.000,00*
 ╠➥ *Permanen* : *Rp 30.000,00*
 ╠➥ *Premium* :   *Rp 15.000,00*
-╠➥ *Sc Bot* :        *Masih Beta*
+╠➥ *Sc Bot* :        *-*
 ║
 ╠═〘 PEMBAYARAN 〙 ═
-╠➥ Gopay, Dana, Dan Pulsa
-║
+╠➥ Gopay Dan Pulsa
+║. Nomer transaksi 085730903853
 ╠═ Tertarik Untuk Beli Bot Ini?
 ╠➥Ketuk Tombol Di Bawah Ya
 ║
