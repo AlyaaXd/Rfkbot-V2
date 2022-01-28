@@ -26,7 +26,7 @@ const defaultMenu = {
 ┃⬡ Uptime: *%uptime (%muptime)*
 ┃⬡ Database: %rtotalreg dari %totalreg
 ┃⬡ Github:
-┃ https://github.com/AlyaaXd/RfkbotV1
+┃ -
 ┃
 ┗━━━━━━⬣`.trimStart(),
   header: '┏━━〔 %category 〕━⬣',
@@ -244,7 +244,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
 ┃⬡ Yt : AlyaaXzy ?
 ┃⬡ Base nurutomo
 ┃⬡ pesan: Make fitur nfsw ke
-┃      blokir permanent
+┃  blokir permanent
 ┃⬡ © AlyaaXzy
 ┗━━━━━━━━⬣`.trim(),
           "buttonText": "Klik Disini",
