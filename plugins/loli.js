@@ -1,7 +1,7 @@
 let fetch = require('node-fetch')
      let handler  = async (m, { conn, usedPrefix, command }) => {
 m.reply(wait)
-heum = await fetch(`https://api.lolhuman.xyz/api/random/loli?apikey=`)
+heum = await fetch(`https://api.lolhuman.xyz/api/random/loli?apikey=12f2d16cb0b1d8019ada84ae`)
     json = await heum.buffer()
    conn.sendButtonImg(m.chat, json, kasihcaption, footer, 'Next', `${usedPrefix + command}`, m, { contextInfo: { forwardingScore: 999, isForwarded: true }})
 
