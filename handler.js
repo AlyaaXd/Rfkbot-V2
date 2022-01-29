@@ -1,5 +1,10 @@
 let util = require('util')
+let fs = require('fs')
+let fetch = require('node-fetch')
 let simple = require('./lib/simple')
+let time = require('moment-timezone').tz('Asia/Jakarta').format('HH:mm:ss')
+const uploadImage = require('./lib/uploadImage')
+const knights = require('knights-canvas')
 let { MessageType } = require('@adiwajshing/baileys')
 
 const isNumber = x => typeof x === 'number' && !isNaN(x)
@@ -29,10 +34,11 @@ module.exports = {
             if (!isNumber(user.healt)) user.healt = 0
             if (!isNumber(user.level)) user.level = 0
             if (!isNumber(user.exp)) user.exp = 0
-            if (!isNumber(user.title)) user.title = ''
-            if (!isNumber(user.limit)) user.limit = 50
+            if (!isNumber(user.title)) user.title = 'Nothing'
+            if (!isNumber(user.limit)) user.limit = 20
             if (!isNumber(user.lastclaim)) user.lastclaim = 0
-            if (!isNumber(user.money)) user.money = 0
+            if (!isNumber(user.lastgetmoney)) user.lastgetmoney = 0
+            if (!isNumber(user.money)) user.money = 12000
             
             if (!isNumber(user.diamond)) user.diamond = 0
             if (!isNumber(user.iron)) user.iron = 0
@@ -93,11 +99,28 @@ module.exports = {
             if (!isNumber(user.udang)) user.udang = 0
             if (!isNumber(user.ikan)) user.ikan = 0
             if (!isNumber(user.orca)) user.orca = 0
+            
+            if (!isNumber(user.banteng)) user.banteng = 0
+            if (!isNumber(user.harimau)) user.harimau = 0
+            if (!isNumber(user.gajah)) user.gajah = 0
+            if (!isNumber(user.kambing)) user.kambing = 0
+            if (!isNumber(user.panda)) user.panda = 0
+            if (!isNumber(user.buaya)) user.buaya = 0
+            if (!isNumber(user.kerbau)) user.kerbau = 0
+            if (!isNumber(user.sapi)) user.sapi = 0
+            if (!isNumber(user.monyet)) user.monyet = 0
+            if (!isNumber(user.babihutan)) user.babihutan = 0
+            if (!isNumber(user.babi)) user.babi = 0
+            if (!isNumber(user.ayam)) user.ayam = 0
 
             if (!isNumber(user.lastadventure)) user.lastadventure = 0
             if (!isNumber(user.lastfishing)) user.lastfishing = 0
             if (!isNumber(user.lastdungeon)) user.lastdungeon = 0
             if (!isNumber(user.lastduel)) user.lastduel = 0
+            if (!isNumber(user.lastduel)) user.lastnguli = 0
+            if (!isNumber(user.lastbansos)) user.lastbansos = 0
+            if (!isNumber(user.lastnyampah)) user.lastnyampah = 0
+            if (!isNumber(user.lastnebang)) user.lastnebang = 0
             if (!isNumber(user.lastmining)) user.lastmining = 0
             if (!isNumber(user.lasthunt)) user.lasthunt = 0
             if (!isNumber(user.lastweekly)) user.lastweekly = 0
@@ -106,19 +129,19 @@ module.exports = {
             if (!user.registered) {
                 if (!('name' in user)) user.name = this.getName(m.sender)
                 if (!isNumber(user.age)) user.age = -1
-                if (!isNumber(user.serial)) user.serial
                 if (!isNumber(user.regTime)) user.regTime = -1
             }
             if (!('autolevelup' in user)) user.autolevelup = true
-            if (!('lastIstigfar' in user)) user.lastIstigfar = true
+            if (!('lastIstugfar' in user)) user.lastIstigfar = true
         } else global.db.data.users[m.sender] = {
             healt: 100,
             level: 0,
-            title: '',
+            title: 'Nothing',
             exp: 0,
-            limit: 50,
+            limit: 20,
             lastclaim: 0,
-            money: 0,
+            lastgetmoney: 0,
+            money: 12000,
             diamond: 0,
             iron: 0,
             common: 0,
@@ -143,6 +166,18 @@ module.exports = {
             udang: 0,
             ikan: 0,
             orca: 0,
+            banteng: 0,
+            harimau: 0,
+            gajah: 0,
+            kambing: 0,
+            panda: 0,
+            buaya: 0,
+            kerbau : 0,
+            sapi: 0,
+            monyet : 0,
+            babihutan: 0,
+            babi: 0,
+            ayam: 0,
             kucinglastclaim: 0,
             kuda: 0,
             kudalastclaim: 0,
@@ -174,14 +209,17 @@ module.exports = {
             lastfishing: 0,
             lastdungeon: 0,
             lastduel: 0,
+            lastnebang: 0,
+            lastnguli: 0,
+            lastnyampah: 0,
             lastmining: 0,
             lasthunt: 0,
+            lastbansos: 0,
             lastweekly: 0,
             lastmonthly: 0,
             registered: false,
             name: this.getName(m.sender),
             age: -1,
-            serial: serial,
             regTime: -1,
             autolevelup: true,
             lastIstigfar: 0,
@@ -198,8 +236,9 @@ module.exports = {
           if (!('sPromote' in chat)) chat.sPromote = ''
           if (!('sDemote' in chat)) chat.sDemote = ''
           if (!('descUpdate' in chat)) chat.descUpdate = true
-          if (!('delete' in chat)) chat.delete = false
+          if (!('delete' in chat)) chat.delete = true
           if (!('antiBadword' in chat)) chat.antiBadword = true
+          if (!('stiker' in chat)) chat.stiker = false
           if (!('rpg' in chat)) chat.delete = true
           if (!('nsfw' in chat)) chat.delete = false
           if (!('antiLink' in chat)) chat.antiLink = false
@@ -213,7 +252,8 @@ module.exports = {
           sPromote: '',
           sDemote: '',
           descUpdate: true,
-          delete: false,
+          delete: true,
+          stiker: false,
           rpg: true,
           nsfw: false,
           antiBadword: true,
@@ -490,8 +530,8 @@ module.exports = {
       } catch (e) {
         console.log(m, m.quoted, e)
       }
-      if (opts['autoread']) await this.chatRead(m.chat).catch(() => { })
-    //this.chatRead(m.chat).catch(() => { })
+    //  if (opts['autoread']) await this.chatRead(m.chat).catch(() => { })
+    this.chatRead(m.chat).catch(() => { })
     }
   },
   async participantsUpdate({ jid, participants, action }) {
@@ -503,16 +543,47 @@ module.exports = {
         if (chat.welcome) {
           let groupMetadata = await this.groupMetadata(jid)
           for (let user of participants) {
-            let pp = './src/avatar_contact.png'
+            // let pp = './src/avatar_contact.png'
+            let pp = './src/AlyaaXzy.jpg'
+            let ppgc = './src/AlyaaXzy.jpg'
             try {
-              pp = await this.getProfilePicture(user)
+              pp = await uploadImage(await (await fetch(await this.getProfilePicture(user))).buffer())
+              ppgc = await uploadImage(await (await fetch(await this.getProfilePicture(jid))).buffer())
             } catch (e) {
             } finally {
-              text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Welcome, @user!').replace('@subject', this.getName(jid)).replace('@desc', groupMetadata.desc) :
-                (chat.sBye || this.bye || conn.bye || 'Bye, @user!')).replace('@user', '@' + user.split('@')[0])
-              this.sendFile(jid, pp, 'pp.jpg', text, null, false, {
-                contextInfo: {
-                  mentionedJid: [user]
+              text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Selamat datang, @user!').replace('@subject', this.getName(jid)).replace('@desc', groupMetadata.desc ? String.fromCharCode(8206).repeat(4001) + groupMetadata.desc : '') :
+                (chat.sBye || this.bye || conn.bye || 'Sampai jumpa, @user!')).replace(/@user/g, '@' + user.split`@`[0])
+              let wel = await new knights.Welcome()
+                .setUsername(this.getName(user))
+                .setGuildName(this.getName(jid))
+                .setGuildIcon(ppgc)
+                .setMemberCount(groupMetadata.participants.length)
+                .setAvatar(pp)
+                .setBackground("https://telegra.ph/file/89a6260f0a6720240e698.jpg")
+                .toAttachment()
+
+              let lea = await new knights.Goodbye()
+                .setUsername(this.getName(user))
+                .setGuildName(this.getName(jid))
+                .setGuildIcon(ppgc)
+                .setMemberCount(groupMetadata.participants.length)
+                .setAvatar(pp)
+                .setBackground("https://telegra.ph/file/89a6260f0a6720240e698.jpg")
+                .toAttachment()
+
+              this.sendButtonImg(jid, action === 'add' ? wel.toBuffer() : lea.toBuffer(), text, action === 'add' ? 'Welcome Message' : 'Leave Message', action === 'add' ? 'Welcome👋' : 'Byee👋',action === 'add' ? 'Welcome👋' : 'Byee👋', {
+key: {
+fromMe: false,
+participant: '0@s.whatsapp.net',
+remoteJid: 'status@broadcast'
+},
+message: {
+contactMessage: {
+displayName: this.getName(user),
+vcard: `BEGIN:VCARD\nVERSION:3.0\nN:;WA;;;\nFN:WA\nTEL;type=CELL;type=VOICE;waid=${user.split('@')[0]}:${user.split('@')[0]}\nEND:VCARD`
+}
+}
+}, false, { contextInfo: { mentionedJid: [user]
                 }
               })
             }
@@ -524,7 +595,8 @@ module.exports = {
       case 'demote':
         if (!text) text = (chat.sDemote || this.sdemote || conn.sdemote || '@user ```is no longer Admin```')
         text = text.replace('@user', '@' + participants[0].split('@')[0])
-        if (chat.detect) this.sendMessage(jid, text, MessageType.extendedText, {
+        let kntl = fs.readFileSync('./src/RadBotZ.jpg')
+        if (chat.detect) this.send2ButtonLoc(jid, kntl, text, watermark, 'MENU', '#menu', 'OWNER', '#owner', null, {
           contextInfo: {
             mentionedJid: this.parseMention(text)
           }
@@ -536,12 +608,15 @@ module.exports = {
     if (m.key.fromMe) return
     let chat = global.db.data.chats[m.key.remoteJid]
     if (chat.delete) {
-    await this.reply(m.key.remoteJid, `
-Terdeteksi @${m.participant.split`@`[0]} telah menghapus pesan
+    await this.sendButton(m.key.remoteJid, `*—「 Anti Delete 」—*
+*📢 Terdeteksi Penghapusan Pesan !*
+*◇ Nama :* @${m.participant.split`@`[0]}
+*◇ Type*: ${Object.keys(m.message.message)[0]}
+*◇ Number*: ${require('awesome-phonenumber')(`+${m.participant.split`@`[0]}`).getNumber('international')}
 
-Untuk mematikan fitur ini, ketik
-*.disable delete*
-`.trim(), m.message, {
+klick untuk mematikannya atau ketik #disable delete
+`.trim(), watermark, 'DISABLE DELETE', '.disable delete', {
+      quoted: m.message,
       contextInfo: {
         mentionedJid: [m.participant]
       }
@@ -568,22 +643,30 @@ Untuk mematikan fitur ini, ketik
 
 global.dfail = (type, m, conn) => {
 	let name = conn.getName(m.sender)
-  let msg = {
-    rowner: `❌Perintah ditolak❌\n\nSilahkan hubungi @${global.kontak[0].split`@`[0]}`,
-    owner: `❌⚠️Perintah ditolak⚠️❌\n\nSilahkan hubungi @${global.kontak[0].split`@`[0]}`,
-    mods: `❌Perintah ditolak❌\n\nSilahkan hubungi @${global.kontak[0].split`@`[0]}`,
-    premium: '❌Perintah Ini khusus pengguna _*Premium*_ !',
-    group: 'Perintah ini hanya dapat digunakan di grup!',
-    private: '❌Perintah ditolak❌\n\nGunakan Perintah ini di Chat Pribadi bot',
-    admin: 'Perintah ini hanya untuk *Admin* grup!',
-    nsfw: `Perintah ini hanya bisa diaktifkan oleh @${global.kontak[0].split`@`[0]}`,
-    botAdmin: 'Jadikan Bot sebagai admin untuk menggunakan perintah ini\n\nDenger ya dekkk!!!\nApakah orang yang tidak menjadi admin bisa menambahkan member???!!!!!',
-    unreg: `Silahkan daftar untuk menggunakan fitur ini dengan cara mengetik:\n\n*#daftar nama.umur*\n\nContoh: *#daftar nama.16*`
+  let owr = {
+    rowner: 'https://telegra.ph/file/2848948d64ea43302c882.png'
   }[type]
-  if (msg) return m.reply(msg)
+  if (owr) return conn.sendSticker(m.chat, 'https://telegra.ph/file/2848948d64ea43302c882.png', m ,{sendEphemeral: true})
+  let msg = {
+    owner: 'Perintah ini hanya dapat digunakan oleh _*Owner Bot*_!',
+    mods: 'Perintah ini hanya dapat digunakan oleh _*Moderator*_ !',
+    premium: 'Perintah ini hanya untuk member _*Premium*_ !',
+    group: 'Perintah ini hanya dapat digunakan di grup!',
+    private: 'Perintah ini hanya dapat digunakan di Chat Pribadi!',
+    admin: 'Perintah ini hanya untuk *Admin* grup!',
+    nsfw: 'Perintah ini hanya bisa diaktifkan oleh owner',
+  }[type]
+  if (msg) return conn.sendButton(m.chat, msg, watermark, 'OK', 'Nanii', m)
+  let botAdmin = {
+    botAdmin: 'Mikir dkit lah bang *BOT NYA BUKAN ADMIN*',
+  }[type]
+  if (botAdmin) return conn.sendButton(m.chat, botAdmin, 'lupa saya', 'Eh iya ya', 'Nanii', m)
+  let unreg = {
+    unreg: `Silahkan daftar untuk menggunakan fitur ini dengan cara mengetik:\n\n*#daftar nama.umur*\n\nContoh: *#daftar AlyaaXzy.16*`
+  }[type]
+  if (unreg) return conn.sendButton(m.chat, `Halo kak ${name} Sebelum menggunakan fitur ini Harap Verify Terlebih dahulu`, watermark, 'Verify', `#daftar ${name}.17`, { key: { fromMe: false, remoteJid: 'status@broadcast', participant: '0@s.whatsapp.net' }, message: { orderMessage: { message: `© AlyaaXzy_\nJam ${time}`, itemCount: 2022, thumbnail: fs.readFileSync('./src/AlyaaXzy.jpg')}}})
 }
 
-let fs = require('fs')
 let chalk = require('chalk')
 let file = require.resolve(__filename)
 fs.watchFile(file, () => {
