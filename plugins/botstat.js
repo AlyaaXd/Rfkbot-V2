@@ -1,46 +1,51 @@
-let handler = async (m, { conn }) => {
-    let { anon, anticall, antispam, antitroli, backup, jadibot, groupOnly, nsfw } = global.db.data.settings[conn.user.jid]
-    const chats = conn.chats.all()
-    const groups = chats.filter(v => v.jid.endsWith('g.us'))
-    let totaljadibot = [...new Set([...global.conns.filter(conn => conn.user && conn.state !== 'close').map(conn => conn.user)])]
+let fetch = require('node-fetch')
+let { MessageType } = require('@adiwajshing/baileys')
+let handler = async(m, { conn }) => {
+    let kontol = `Kebijakan Privasi, Syarat Ketentuan dan Peraturan Sirad BOT
 
-    let _uptime = process.uptime() * 1000
-    let uptime = clockString(_uptime)
+Kebijakan Privasi
+1. AlyaaXzy tidak akan merekam data riwayat chat user.
+2. AlyaaXzy tidak akan menyebarkan nomor users.
+3. AlyaaXzy tidak akan menyimpan media yang dikirimkan oleh users.
+4. AlyaaXzy tidak akan menyalah gunakan data data users.
+5. Owner AlyaaXzy berhak melihat data riwayat chat users.
+6. Owner AlyaaXzy berhak melihat status users.
+7. Owner AlyaaXzy dapat melihat riwayat chat, dan media yang dikirimkan users.
 
-    m.reply(`
-┌─〔 Status 〕
-├ Aktif selama ${uptime}
-├ Baterai ${conn.battery != undefined ? `${conn.battery.value}% ${conn.battery.live ? '🔌 pengisian' : ''}` : 'tidak diketahui'}
-├ *${groups.length}* Grup
-├ *${chats.length - groups.length}* Chat Pribadi
-├ *${Object.keys(global.db.data.users).length}* Pengguna
-├ *${totaljadibot.length}* Jadibot
-├ *${conn.blocklist.length}* Terblock
-├ *${Object.entries(global.db.data.chats).filter(chat => chat[1].isBanned).length}* Chat Terbanned
-├ *${Object.entries(global.db.data.users).filter(user => user[1].banned).length}* Pengguna Terbanned
-└────
+Peraturan Sirad Bot
+1. Users dilarang menelpon maupun memvideo call nomor bot.
+2. Users dilarang mengirimkan berbagai bug, virtex, dll ke nomor bot.
+3. Users diharap tidak melakukan spam dalam penggunaan bot.
+4. Users dilarang menambahkan nomor bot secara illegal, untuk menambahkan silahkan hubungi owner.
+5. Users diharap untuk tidak menyalah gunakan fitur fitur bot.
 
-┌─〔 Pengaturan 〕
-├ ${anon ? '✅' : '❌'} *Anon Chat*
-├ ${anticall ? '✅' : '❌'} *Anti Call*
-├ ${antispam ? '✅' : '❌'} *Anti Spam*
-├ ${antitroli ? '✅' : '❌'} *Anti Troli*
-├ ${backup ? '✅' : '❌'} *Auto Backup DB*
-├ ${groupOnly ? '✅' : '❌'} *Mode Grup*
-├ ${jadibot ? '✅' : '❌'} *Jadi Bot*
-├ ${nsfw ? '✅' : '❌'} *Mode Nsfw*
-└────
-    `.trim())
+Syarat Ketentuan Sirad Bot
+1. Bot akan keluar dari group apabila sudah waktunya keluar.
+2. AlyaaXzy dapat mem-ban users secara sepihak terlepas dari users salah atau tidak.
+3. AlyaaXzy *tidak akan bertanggungjawab atas apapun yang users lakukan terhadap fitur bot.*
+4. AlyaaXzy akan memberlakukan hukuman: block atau ban terhadap users yang melanggar peraturan.
+5. AlyaaXzy bertanggung jawab atas kesalahan fatal dalam programing maupun owner.
+
+SC : Tq
+-Raditya
+
+Peraturan: 1 Oktober 2021
+`.trim()
+  const button = {
+        buttonText: 'Klik Di sini',
+        description: kontol,
+        sections:  [{title: "Silahkan di pilih gausah pilih yang gaada", rows: [
+        {title: 'Menu Utama', description: "Kembali ke Menu Utama", rowId:".?"},
+        {title: 'Sewa Bot', description: "Sewa bot dengan memasukkan bot ke grup kamu", rowId:".sewa"},
+        {title: 'Cara Invit?', description: "Cara Memasukkan Bot Di GC", rowId:".tutorbot"},
+        {title: 'Nomor Owner', description: "CHAT *P* TIDAK DI BALAS", rowId:".owner"},
+       ] }],
+        listType: 1
+       }
+    conn.sendMessage(m.chat, button, MessageType.listMessage, { quoted: m })
 }
-handler.help = ['botstatus']
-handler.tags = ['info']
-handler.command = /^botstat(us)?$/i
 
+handler.tags = ['main', 'update']
+handler.command = /^(rules|rule)$/i
+handler.help = ['rules']
 module.exports = handler
-
-function clockString(ms) {
-    let h = isNaN(ms) ? '--' : Math.floor(ms / 3600000)
-    let m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60
-    let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60
-    return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')
-}
