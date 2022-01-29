@@ -232,10 +232,25 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
                         "title": `*${ucapan()}, ${name}*`.trim(),
                         "description": `©AlyaaXzy`.trim(),
                         "footerText": "Jika menemukan bug, error atau kesulitan dalam penggunaan silahkan laporkan/tanyakan kepada owner.",
-                        "buttonText": " *Click Here* ",
+                        "buttonText": "*Click Here*",
                         "listType": "SINGLE_SELECT",
                         "sections": [
                             {
+                                "rows": [{
+                                    "title": "Status Bot",
+                                    "description": "Status dan informasi Bot.",
+                                    "rowId": ".botstatus"
+                                }, {
+                                    "title": "Rules",
+                                    "description": "User yang bijak selalu mematuhi Rules.",
+                                    "rowId": ".rules"
+                                }, {
+                                    "title": "Sewa bot - Premium",
+                                    "description": "Untuk kamu yang ingin melihat daftar harga sewa dan premium.",
+                                    "rowId": ".sewabot"
+                                }],
+                                "title": "⟣─────────❲ Tentang Bot dan lainnya ❳──────────⟢"
+                            }, {
                                 "rows": [{
                                     "title": `[🧾| Semua Perintah`,
                                     "description": "Memberikan Semua Fitur Bot",
