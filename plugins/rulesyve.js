@@ -1,77 +1,51 @@
-let { performance } = require('perf_hooks')
-let fs = require ('fs')
-let path = require('path')
-let handler  = async (m, { conn, usedPrefix }) => { 
-  let package = JSON.parse(fs.readFileSync(path.join(__dirname, '../package.json')))
-  let _uptime = process.uptime() * 1000
-  let uptime = clockString(_uptime) 
-  let totalreg = Object.keys(global.db.data.users).length
-  let old = Math.round(performance.now())
-  //await m.reply('wait Kakak!!')
-  let neww = Math.round(performance.now())
-  conn.reply(m.chat, `
-═〘 Rules ${namabot} 〙═
+let fetch = require('node-fetch')
+let { MessageType } = require('@adiwajshing/baileys')
+let handler = async(m, { conn }) => {
+    let kontol = `Kebijakan Privasi, Syarat Ketentuan dan Peraturan Sirad BOT
 
-⬡ Mohon untuk tidak Spam Bot karena Bot ini sudah memiliki Otomatis Blokir Bagi Pengguna Bot yang Spam
+Kebijakan Privasi
+1. AlyaaXzy tidak akan merekam data riwayat chat user.
+2. AlyaaXzy tidak akan menyebarkan nomor users.
+3. AlyaaXzy tidak akan menyimpan media yang dikirimkan oleh users.
+4. AlyaaXzy tidak akan menyalah gunakan data data users.
+5. Owner AlyaaXzy berhak melihat data riwayat chat users.
+6. Owner AlyaaXzy berhak melihat status users.
+7. Owner AlyaaXzy dapat melihat riwayat chat, dan media yang dikirimkan users.
 
-⬡ Mohon maaf jika ad yg memakai menu Nsfw maka akan di block oleh bot, jika di gc tolong admin untuk menghubungi kami!!
+Peraturan Sirad Bot
+1. Users dilarang menelpon maupun memvideo call nomor bot.
+2. Users dilarang mengirimkan berbagai bug, virtex, dll ke nomor bot.
+3. Users diharap tidak melakukan spam dalam penggunaan bot.
+4. Users dilarang menambahkan nomor bot secara illegal, untuk menambahkan silahkan hubungi owner.
+5. Users diharap untuk tidak menyalah gunakan fitur fitur bot.
 
-⬡ Mohon untuk tidak Menelpon Bot karena Bot ini sudah memiliki Otomatis Blokir Bagi orang yang nelpon Bot
+Syarat Ketentuan Sirad Bot
+1. Bot akan keluar dari group apabila sudah waktunya keluar.
+2. AlyaaXzy dapat mem-ban users secara sepihak terlepas dari users salah atau tidak.
+3. AlyaaXzy *tidak akan bertanggungjawab atas apapun yang users lakukan terhadap fitur bot.*
+4. AlyaaXzy akan memberlakukan hukuman: block atau ban terhadap users yang melanggar peraturan.
+5. AlyaaXzy bertanggung jawab atas kesalahan fatal dalam programing maupun owner.
 
-⬡ Kami tidak bertanggung jawab atas penyalahgunaan bot
+SC : Tq
+-Raditya
 
-⬡ Kami tidak bertanggung jawab atas kebocoran data pribadi anda
-
-
-➥ ${namabot} Versi ${package.version}
-➥ *HomePage:* https://github.com/AlyaaXd
-➥ *Issue:* https://github.com/AlyaaXd
-➥ *Ping:* ${neww - old} *ms*
-➥ *Total user:* ${totalreg} *user*
-➥ *Uptime:* ${uptime}
-
-═ 〘 DONASI 〙 ═
-➥ Pulsa : 6285730903853
-➥ Dana & OVO: 6285730903853
-
-
-➥ Request? https://github.com/AlyaaXd
-
-Official Grup :
-
-Grup 1 :
-https://chat.whatsapp.com/HJ9pD2XJ8vq7whuAYOvT1Y
-
-Grup 2 :
-https://chat.whatsapp.com/HJ9pD2XJ8vq7whuAYOvT1Y
-
-Grup 3 :
-https://chat.whatsapp.com/HJ9pD2XJ8vq7whuAYOvT1Y
-
-
- ©BaseNew ${namabot}
- Script original by AlyaaXd
- 
- 
-═〘 ${namabot} 〙 ═
-`.trim(), m)
+Peraturan: 1 Oktober 2021
+`.trim()
+  const button = {
+        buttonText: 'Klik Di sini',
+        description: kontol,
+        sections:  [{title: "Silahkan di pilih gausah pilih yang gaada", rows: [
+        {title: 'Menu Utama', description: "Kembali ke Menu Utama", rowId:".?"},
+        {title: 'Sewa Bot', description: "Sewa bot dengan memasukkan bot ke grup kamu", rowId:".sewa"},
+        {title: 'Cara Invit?', description: "Cara Memasukkan Bot Di GC", rowId:".tutorbot"},
+        {title: 'Nomor Owner', description: "CHAT *P* TIDAK DI BALAS", rowId:".owner"},
+       ] }],
+        listType: 1
+       }
+    conn.sendMessage(m.chat, button, MessageType.listMessage, { quoted: m })
 }
 
-handler.help = ['main']
-handler.tags = ['infobot', 'rules']
-handler.command = handler.command = /^(infobot|rules)$/i
-
-handler.fail = null
-
+handler.tags = ['main', 'update']
+handler.command = /^(rules|rule)$/i
+handler.help = ['rules']
 module.exports = handler
-
-const more = String.fromCharCode(8206)
-const readMore = more.repeat(4001)
-
-function clockString(ms) {
-  let h = Math.floor(ms / 3600000)
-  let m = Math.floor(ms / 60000) % 60
-  let s = Math.floor(ms / 1000) % 60
-  console.log({ms,h,m,s})
-  return [h, m, s].map(v => v.toString().padStart(2, 0) ).join(':')
-}
