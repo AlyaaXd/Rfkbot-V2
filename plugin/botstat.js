@@ -1,3 +1,4 @@
+let fetch = require('node-fetch')
 let handler = async (m, { conn }) => {
     let { anon, anticall, antispam, antitroli, backup, jadibot, groupOnly, nsfw } = global.db.data.settings[conn.user.jid]
     const chats = conn.chats.all()
@@ -7,14 +8,14 @@ let handler = async (m, { conn }) => {
     let _uptime = process.uptime() * 1000
     let uptime = clockString(_uptime)
 
-    m.reply(`
+    let str = `
 ┌─〔 Info AlyaaXzy Botz 〕
 │Name: AlyaaXzy
 │Main Owner: AlyaaXzy
 │Operated Since: 19 September 2021
 │Language Used: Nodejs (JS)
 │Server: Heroku
-│SC: -
+│SC: _github.com/Drz103/RadBot.git_
 └────
 
 ┌─〔 Status 〕
@@ -28,6 +29,7 @@ let handler = async (m, { conn }) => {
 ├ *${Object.entries(global.db.data.chats).filter(chat => chat[1].isBanned).length}* Chat Terbanned
 ├ *${Object.entries(global.db.data.users).filter(user => user[1].banned).length}* Pengguna Terbanned
 └────
+
 ┌─〔 Pengaturan 〕
 ├ ${anon ? '✅' : '❌'} *Anon Chat*
 ├ ${anticall ? '✅' : '❌'} *Anti Call*
@@ -36,7 +38,7 @@ let handler = async (m, { conn }) => {
 ├ ${backup ? '✅' : '❌'} *Auto Backup DB*
 ├ ${groupOnly ? '✅' : '❌'} *Mode Grup*
 ├ ${jadibot ? '✅' : '❌'} *Jadi Bot*
-├ ${nsfw ? '✅' : '❌'} *Mode Nsfw
+├ ${nsfw ? '✅' : '❌'} *Mode Nsfw*
 └────`.trim()
      await conn.send2ButtonLoc(m.chat, await(await fetch(image)).buffer(), str, '©AlyaaXzy ⁩×͜×', 'Owner', '.owner', 'Menu', '.menu', m)
 }
