@@ -28,7 +28,6 @@ let handler = async (m, { conn }) => {
 ├ *${Object.entries(global.db.data.chats).filter(chat => chat[1].isBanned).length}* Chat Terbanned
 ├ *${Object.entries(global.db.data.users).filter(user => user[1].banned).length}* Pengguna Terbanned
 └────
-
 ┌─〔 Pengaturan 〕
 ├ ${anon ? '✅' : '❌'} *Anon Chat*
 ├ ${anticall ? '✅' : '❌'} *Anti Call*
@@ -37,7 +36,7 @@ let handler = async (m, { conn }) => {
 ├ ${backup ? '✅' : '❌'} *Auto Backup DB*
 ├ ${groupOnly ? '✅' : '❌'} *Mode Grup*
 ├ ${jadibot ? '✅' : '❌'} *Jadi Bot*
-├ ${nsfw ? '✅' : '❌'} *Mode Nsfw*
+├ ${nsfw ? '✅' : '❌'} *Mode Nsfw
 └────`.trim()
      await conn.send2ButtonLoc(m.chat, await(await fetch(image)).buffer(), str, '©AlyaaXzy ⁩×͜×', 'Owner', '.owner', 'Menu', '.menu', m)
 }
