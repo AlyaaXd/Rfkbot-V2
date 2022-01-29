@@ -21,24 +21,34 @@ global.mods = ['0'] // Want some help?
 global.prems = ['+1 (775) 403-5736','6289505165400','6282287750102','6288279274413'] // Premium user has unlimited limit
 global.APIs = { // API Prefix
   // name: 'https://website'
-  nrtm: 'https://nurutomo.herokuapp.com', 
-  rey: 'https://api.sekha.tech',
+  bx: 'https://bx-hunter.herokuapp.com',
+  rey: 'https://server-api-rey.herokuapp.com',
+  hardianto: 'https://hardianto.xyz',
+  neoxr: 'https://neoxr-api.herokuapp.com',
+  nrtm: 'https://nurutomo.herokuapp.com',
   xteam: 'https://api.xteam.xyz',
   zahir: 'https://zahirr-web.herokuapp.com',
   lol: 'https://api.lolhuman.xyz',
+  caliph: 'https://caliphapi.com',
   dhnjing: 'https://dhnjing.xyz',
   zeks: 'https://api.zeks.me',
   pencarikode: 'https://pencarikode.xyz',
+  fxc7: 'https://fxc7-api.herokuapp.com',
   LeysCoder: 'https://leyscoders-api.herokuapp.com'
 }
 global.APIKeys = { // APIKey Here
-  // 'https://website': 'apikey' (apikey kalian)
-  'https://api.sekha.tech': 'apirey',
-  'https://api.xteam.xyz': 'Dawnfrostkey',
-  'https://api.lolhuman.xyz': 'RFK-Rey',
+  // 'https://website': 'apikey' (apikey kalian^_^)
+  'https://server-api-rey.herokuapp.com': 'apirey',
+  'https://bx-hunter.herokuapp.com': 'Ikyy69',
+  'https://hardianto.xyz': 'hardianto',
+  'https://neoxr-api.herokuapp.com': 'yntkts',
+  'https://api.xteam.xyz': 'cristian9407',
+  'https://api.lolhuman.xyz': 'Dawnfrostkey',
+  'https://caliphapi.com': 'ELYASXD',
   'https://zahirr-web.herokuapp.com': 'zahirgans',
   'https://api.zeks.me': 'apivinz',
   'https://pencarikode.xyz': 'pais',
+  'https://fxc7-api.herokuapp.com': 'fxc7COOL',
   'https://leyscoders-api.herokuapp.com': 'dappakntlll'
 }
 
