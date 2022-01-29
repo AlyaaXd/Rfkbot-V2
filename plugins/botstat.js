@@ -1,4 +1,3 @@
-let fetch = require('node-fetch')
 let handler = async (m, { conn }) => {
     let { anon, anticall, antispam, antitroli, backup, jadibot, groupOnly, nsfw } = global.db.data.settings[conn.user.jid]
     const chats = conn.chats.all()
@@ -8,7 +7,7 @@ let handler = async (m, { conn }) => {
     let _uptime = process.uptime() * 1000
     let uptime = clockString(_uptime)
 
-    let str = `
+    m.reply(`
 ┌─〔 Info AlyaaXzy Botz 〕
 │Name: AlyaaXzy
 │Main Owner: AlyaaXzy
