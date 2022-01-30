@@ -10,6 +10,6 @@ handler.help = ['hentai']
 handler.tags = ['hentai']
 
 handler.command = /^(hentai)$/i
-handler.limit = 30
+handler.limit = true
 
 module.exports = handler
