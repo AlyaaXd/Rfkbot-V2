@@ -41,7 +41,7 @@ let handler = async (m, { conn, text }) => {
 		{ area: 13, name: "Teen Dragon" },
 		{ area: 13, name: "Scaled Teen Dragon" },
 	]
-	let player = global.db.data.users[m.sender]
+	let player = global.DATABASE.data.users[m.sender]
 	let pname = conn.getName(m.sender)
 
 	let cdm = `${MeNit(new Date - player.Thunt)}`
@@ -53,7 +53,7 @@ let handler = async (m, { conn, text }) => {
 	let monster = area_monsters[Math.floor(Math.random() * area_monsters.length)]
 	let monsterName = pickRandom(monsters[0].name.toUpperCase())
 
-	if (new Date - global.db.data.users[m.sender].lasthunt > 120000) {
+	if (new Date - global.DATABASE._data.users[m.sender].lasthunt > 120000) {
 		let coins = parseInt(Math.floor(Math.random() * 401))
 		let exp = parseInt(Math.floor(Math.random() * 601))
 		let sum = 82 * player.area - 59
