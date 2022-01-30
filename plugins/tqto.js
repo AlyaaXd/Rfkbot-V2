@@ -1,33 +1,39 @@
-//ngapain cok? mau ganti nama yak?
-//hargai lah yg buat,gw cape² ngebuat ini tapi kalian nya malah enak²an ubah nama doang
-//kalo mau ada nama kalian chat dulu ke ibnu,izin dulu biar sama² enak
-//di tambahin nama boleh tapi di ilagin jangan walau satu nama pun
-//yg gk tau nomer raku nih nomer nya
-//http://wa.me/6287834993722?text=bg%20izin%20taroh%20nama%20di%20bot%20mu%20yak
-let handler = async (m, { conn, text }) => {
-  conn.reply(m.chat, `
-*Pertanyaan:* ${m.text}
-*Jawaban:* ${pickRandom(['Ya','Mungkin iya','Mungkin','Mungkin tidak','Tidak','Tidak mungkin'])}
-`.trim(), m)
-}
-handler.help = ['ɴᴜʀᴜᴛᴏᴍᴏ','ʀᴇɴᴅʏᴄʀᴀғᴛ','ɪʙɴᴜ ɴʀ','ʙᴀᴋᴀ ʙᴏᴛᴢ','ʙᴀᴋᴀ ᴛᴇᴀᴍ']
-handler.tags = ['thnks']
-handler.customPrefix = /(\?$)/
-handler.command = /^rakuganteng$/i
-handler.owner = false
-handler.mods = false
-handler.premium = true
-handler.group = false
-handler.private = false
+let fetch = require('node-fetch')
+let handler = async (m, { conn }) => conn.sendButtonLoc(m.chat, await (await fetch(thanks)).buffer(), `
+BIG THANKS TO
 
-handler.admin = false
-handler.botAdmin = false
-
-handler.fail = null
+•Allah swt
+•My ortu
+•Nurutomo
+•Adiwajshing
+•Ariffb
+•Amel
+•IrwanX
+•Dawnfrosty
+•Rteam1
+•Beniismael
+•Raditya 
+•AlyaaXzy (gua)
+•Furqan
+•Elyas
+•Rasel
+•Xteam
+•khael
+•Atenabot
+•Baka Botz
+•ZeeoneOfc
+•Zeks
+•Rendycraft  
+•Nadin
+•Aca Mirabel
+•Penyedia Layanan API
+•Orang-orang yang Berdonasi
+`.trim(), watermark, 'Back', '.menu')
+handler.help = ['Thanksto', 'tqto']
+handler.tags = ['main']
+handler.command = /^(tqto|thanks|thanksto|bigthanks)$/i
 
 module.exports = handler
 
-function pickRandom(list) {
-  return list[Math.floor(Math.random() * list.length)]
-}
-//jgn di ilagin cok
+// di ilangin jangan,di tambahin boleh
+
