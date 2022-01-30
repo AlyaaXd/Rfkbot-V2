@@ -1,4 +1,3 @@
-let fs = require('fs')
 let util = require('util')
 let simple = require('./lib/simple')
 let { MessageType } = require('@adiwajshing/baileys')
@@ -579,12 +578,12 @@ global.dfail = (type, m, conn) => {
     admin: 'Perintah ini hanya untuk *Admin* grup!',
     nsfw: `Perintah ini hanya bisa diaktifkan oleh @${global.kontak[0].split`@`[0]}`,
     botAdmin: 'Jadikan Bot sebagai admin untuk menggunakan perintah ini\n\nDenger ya dekkk!!!\nApakah orang yang tidak menjadi admin bisa menambahkan member???!!!!!',
-    unreg: `Silahkan daftar untuk menggunakan fitur ini dengan cara mengetik:\n\n*#daftar nama.umur*\n\nContoh: *#daftar AlyaaXzy.16*`
+    unreg: `Silahkan daftar untuk menggunakan fitur ini dengan cara mengetik:\n\n*#daftar nama.umur*\n\nContoh: *#daftar nama.16*`
   }[type]
-  if (unreg) return conn.sendButton(m.chat, `Halo kak ${name} Sebelum menggunakan fitur ini Harap Verify Terlebih dahulu`, watermark, 'Verify', `#daftar ${name}.17`, { key: { fromMe: false, remoteJid: 'status@broadcast', participant: '0@s.whatsapp.net' }, message: { orderMessage: { message: `© AlyaaXzy_\nJam ${time}`, itemCount: 2022, thumbnail: fs.readFileSync('./src/AlyaaXzy.jpg')}}})
-}
+  if (msg) return m.reply(msg)
 }
 
+let fs = require('fs')
 let chalk = require('chalk')
 let file = require.resolve(__filename)
 fs.watchFile(file, () => {
