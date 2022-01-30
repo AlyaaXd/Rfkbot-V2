@@ -4,10 +4,9 @@ let handler = async (m, { conn, usedPrefix, command }) => {
   m.reply('Sedang Diproses...')
   bzz = await fetch(`https://api.xteam.xyz/randomimage/pussy?apikey=apivproject`)
   res = await bzz.buffer()
-  conn.sendButtonImg(m.chat, res, kasihcaption, footer, 'Next', `${usedPrefix + command}`, m, { contextInfo: { forwardingScore: 999, isForwarded: true }})
-
+  conn.sendButtonImg(m.chat, res, 'mpsss ahhh', watermark, 'NEXT', `${usedPrefix + command}`, m, false)
 }
-handler.help = ['pussy']
+handler.help = ['pussy <erorr>']
 handler.tags = ['hentai']
 
 handler.command = /^(pussy)$/i
@@ -24,3 +23,4 @@ handler.fail = null
 handler.limit = true
 
 module.exports = handler
+
