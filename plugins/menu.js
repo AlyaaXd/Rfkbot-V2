@@ -8,38 +8,32 @@ const chats = conn.chats.all()
 const groups = chats.filter(v => v.jid.endsWith('g.us'))
 const defaultMenu = {
   before: `
-┏━━━━「 ${namabot} 」━━⬣
-┃⬡ Hai, %name!
-┃
-┃⬡ Tersisa *%limit Limit*
-┃⬡ Role *%role*
-┃⬡ Level *%level (%exp / %maxexp)* 
-┃⬡ [%xp4levelup]
-┃⬡ %totalexp XP secara Total
-┃ 
-┃⬡ Hari : *%week %weton* 
-┃⬡ Tanggal : *%date*
-┃⬡ Tanggal Islam : 
-┃⬡ *%dateIslamic*
-┃⬡ Waktu: *%time*
-┃
-┃⬡ Uptime: *%uptime (%muptime)*
-┃⬡ Database: %rtotalreg dari %totalreg
-┃⬡ Github:
-┃ 
-┃
-┗━━━━━━⬣`.trimStart(),
-  header: '┏━━〔 %category 〕━⬣',
-  body: '┃⬡%cmd %islimit %isPremium',
-  footer: '┗━━⬣\n',
+┌────〔 %me 〕───⬣
+│⬡ Hai, %name!
+│⬡ Tersisa *%limit Limit*
+│⬡ Role *%role*
+│⬡ Level *%level (%exp / %maxexp)*
+│⬡ [%xp4levelup]
+│⬡ %totalexp XP secara Total
+│ 
+│⬡ Tanggal: *%week %weton, %date*
+│⬡ Tanggal Islam: *%dateIslamic*
+│⬡ Waktu: *%time*
+│
+│⬡ Uptime: *%uptime (%muptime)*
+│⬡ Database: %rtotalreg dari %totalreg
+│⬡ Memory Used : *${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB*
+╰────────────⬣
+%readmore`.trimStart(),
+  header: '*┌──〔 %category〕*',
+  body: '*│*⦁ %cmd %islimit %isPremium',
+  footer: '*└────⦁*\n',
   after: `
 *%npmname@^%version*
 ${'```%npmdesc```'}
 `,
 }
 let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
-	let bzz = fs.readFileSync('./vn/ara-nabila.mp3')
-	let bzz2 = fs.readFileSync('./vn/onichan.mp3')
 	let { anon, anticall, antispam, antitroli, backup, jadibot, groupOnly, nsfw } = global.db.data.settings[conn.user.jid]
     let totaljadibot = [...new Set([...global.conns.filter(conn => conn.user && conn.state !== 'close').map(conn => conn.user)])]
 
@@ -175,11 +169,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
     let package = JSON.parse(await fs.promises.readFile(path.join(__dirname, '../package.json')).catch(_ => '{}'))
     let { exp, limit, level, role, registered } = global.db.data.users[m.sender]
     let { min, xp, max } = levelling.xpRange(level, global.multiplier)
-    let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
-    let names = m.fromMe ? conn.user : conn.contacts[who]
-    let pushname = `${names.vnmae || names.notify || names.names || ('+' + names.jid.split`@`[0])}`
-    let pushn = 'Daftar Dulu ya kak supaya namanya muncul disini'
-    let name = registered ? global.db.data.users[m.sender].name : pushn
+    let name = registered ? global.db.data.users[m.sender].name : conn.getName(m.sender)
     let d = new Date(new Date + 3600000)
     let locale = 'id'
     // d.getTimeZoneOffset()
