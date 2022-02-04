@@ -1,7 +1,7 @@
 let fetch = require('node-fetch')
 let handler = async (m, { conn, command, usedPrefix }) => {
 	
-	conn.sendButtonImg(m.chat, await ( await fetch(`https://server-api-rey.herokuapp.com/api/wallpaper/${command}?apikey=apirey`)).buffer(), 'Nih kak', watermark, 'NEXT', `${usedPrefix + command}`, m)
+	conn.sendButtonImg(m.chat, await ( await fetch(`https://server-api-rey.herokuapp.com/api/wallpaper/${command}?apikey=apirey`)).buffer(), 'Nih kak', `${usedPrefix + command}`, m)
 
 }
 
